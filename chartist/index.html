@@ -16,10 +16,8 @@
 		<div id="first" class="ct-chart ct-perfect-fourth" style="width:600px;"></div>
 		
 		<h2>Quality of movies</h2>
-		<div id="second" class="ct-chart ct-square" style="width:400px;"></div>
+		<div id="second" class="ct-chart ct-perfect-fourth" style="width:300px;"></div>
 		
-		<h2>Language of movies</h2>
-		<div id="third" class="ct-chart ct-square" style="width:400px;"></div>		
 		
 <table id="tablepress-8" class="tablepress tablepress-id-8">
 <thead>
@@ -188,8 +186,7 @@
 	var dt = jQuery('#tablepress-8').DataTable();
 	var rows = dt.$('tr');
 	var json_chart_labels = ['2012', '2013', '2014', '2015'];
-	var json_chart_ratings_count = [0,0,0,0,0,0,0,0,0,0,0,0];
-	var json_chart_language_count = {'English':0, 'Hindi':0, 'Kannada':0, 'Tamil':0, 'Telugu':0, 'Others':0};
+	var json_chart_ratings_count = [0,0,0,0,0,0,0,0,0,0,0];
 	
 	var json_chart_years_count = [0,0,0,0];
 	var json_chart_average_rating = 0;
@@ -205,35 +202,13 @@
 		var rating = rows[j].cells[1].innerText;
 		var rating_count = json_chart_ratings_count[rating];
 		json_chart_ratings_count[rating] = rating_count + 1;
-
-		var genres = rows[j].cells[4].innerText;
-
-		var language = rows[j].cells[3].innerText;
-		console.log('language='+language);
-		var lang_count = json_chart_language_count[language];
-		console.log('lang_count 0 ='+lang_count);
-		console.log('lang_count 0 ='+typeof(lang_count)== 'number');
-		if (typeof(lang_count) == 'number'){
-			lang_count = lang_count + 1
-			console.log('inside 1='+lang_count);
-		}else{
-			language = "Others";
-			lang_count = json_chart_language_count["Others"];
-			lang_count = lang_count + 1
-			console.log('inside 2='+lang_count);
-
-		}
-		json_chart_language_count[language] = lang_count
-		//console.log('json_chart_language_count='+json_chart_language_count);
-
 		
+		
+		var languages = rows[j].cells[3].innerText;
+		var genres = rows[j].cells[4].innerText;
 		watched_on_year = watched_on.substring(0,4);
 		console.log(watched_on_year);
 		total_rating = total_rating + rating;
-		
-		
-		
-		
 		
 		switch(watched_on_year){
 			case '2012':
@@ -297,25 +272,13 @@
 
 		//2. Pie chart of average ratings,
 		new Chartist.Pie('#second', {
-			labels: [0,1,2,3,4,5,6,7,8,9,10],
-		    series: json_chart_ratings_count
+		  series: json_chart_ratings_count
 		}, {
-			chartPadding: 50,
-			labelOffset: 40,
-			labelDirection: 'explode',
-			donut: true
+		  donut: true
 		});
 		
 		//3. Pie chanrt of languages
-		new Chartist.Pie('#third', {
-			labels: ['English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Others'],
-		    series: [json_chart_language_count['English'],json_chart_language_count['Hindi'],json_chart_language_count['Kannada'],json_chart_language_count['Tamil'],json_chart_language_count['Telugu'],json_chart_language_count['Others']]
-		}, {
-			chartPadding: 50,
-			labelOffset: 40,
-			labelDirection: 'explode',
-			donut: true
-		});
+		
 		
 		
         </script>
