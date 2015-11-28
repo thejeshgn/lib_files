@@ -1,17 +1,17 @@
+/*
 jQuery( document ).ready(function() {
     console.log( "ready!" );
 	updateGraphs();
-/*
 	jQuery('#tablepress-9').on( 'search.dt', function () {
 				
 				console.log("inside search");
 				updateGraphs();
 	} );
 
-*/
 
 //JQuery Ready
 });
+*/
 
 
 function updateGraphs(){
@@ -22,6 +22,7 @@ function updateGraphs(){
 		var rows = jQuery('#tablepress-9').DataTable().$('tr', {"filter":"applied"});
 	}else{
 		console.log("DataTable is not initialized yet");
+		return;
 	}
 	
 	var json_chart_labels = ['2012', '2013', '2014', '2015'];
