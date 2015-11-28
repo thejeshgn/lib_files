@@ -15,6 +15,8 @@ jQuery( document ).ready(function() {
 
 
 function updateGraphs(){
+	jQuery('#graph_display_div_id').show();
+
 	//var dt = jQuery('#tablepress-9').DataTable();
 	//var rows = dt.$('tr');
 	var rows;
@@ -157,5 +159,4 @@ function updateGraphs(){
 		donut: true
 	});
 */
-	
 }
