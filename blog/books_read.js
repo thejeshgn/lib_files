@@ -15,7 +15,11 @@ jQuery( document ).ready(function() {
 
 
 function updateGraphs(){
-	jQuery('#graph_display_div_id').show();
+	if (jQuery('#graph_display_div_id').css('display') == 'none') {
+		jQuery('#graph_display_div_id').show();
+	}else{
+		jQuery('#graph_display_div_id').hide();	
+	}
 
 	//var dt = jQuery('#tablepress-9').DataTable();
 	//var rows = dt.$('tr');
