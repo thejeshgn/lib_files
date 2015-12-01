@@ -25,7 +25,8 @@ function updateGraphs(){
 	//var rows = dt.$('tr');
 	var rows;
 	if ( jQuery.fn.dataTable.isDataTable( '#tablepress-9' ) ) {
-		var rows = jQuery('#tablepress-9').DataTable().$('tr', {"filter":"applied"});
+		//var rows = jQuery('#tablepress-9').DataTable().$('tr', {"filter":"applied"});
+		var rows = jQuery('#tablepress-9').DataTable().$('tr');
 	}else{
 		console.log("DataTable is not initialized yet");
 		return;
