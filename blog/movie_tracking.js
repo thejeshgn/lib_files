@@ -35,12 +35,12 @@ function updateGraphs(){
 		}
 	}
 	var i = 0;
-	console.log(json_chart_labels);
-	for(i=0; i <= json_chart_labels.length; i++){
-		console.log(json_chart_movie_count_array);
+	//console.log(json_chart_labels);
+	for(i=0; i < json_chart_labels.length; i++){
 		json_chart_movie_count_array.push(json_chart_movie_count[json_chart_labels[i]]);
 	}
-
+	//console.log(json_chart_labels);
+	//console.log(json_chart_movie_count_array);
 
 	new Chartist.Line('#first', {
 		  labels: json_chart_labels,
@@ -50,14 +50,15 @@ function updateGraphs(){
 		}, {
 			    reverseData: true,
 			    fullWidth: false,
+				low:'2008-03',
 				chartPadding: {
-					right: 60
+					right: 10
 				},
 				axisY: {
 					onlyInteger: true
 				},
 				axisX: {
-					position: 'end',
+					
 					showLabel: true
 				}	
 		});
