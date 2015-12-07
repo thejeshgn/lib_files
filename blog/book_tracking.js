@@ -10,8 +10,8 @@ function updateGraphs(){
 	var rows;
 	var year_shown = [];
 	if ( jQuery.fn.dataTable.isDataTable( '#tablepress-9' ) ) {
-		//var rows = jQuery('#tablepress-7').DataTable().$('tr', {"filter":"applied"});
-		var rows = jQuery('#tablepress-8').DataTable().$('tr');
+		//var rows = jQuery('#tablepress-9').DataTable().$('tr', {"filter":"applied"});
+		rows = jQuery('#tablepress-9').DataTable().$('tr');
 	}else{
 		console.log("DataTable is not initialized yet");
 		return;
