@@ -21,8 +21,8 @@ function updateGraphs(){
 	var json_chart_weight = [];
 
 	for(j=0; j<rows.length; j++){
-		var weight_date = rows[j].cells[0].innerText;
-		var weight = rows[j].cells[1].innerText;
+		var weight_date =  jQuery(rows[j].cells[0]).text(); 
+		var weight = jQuery(rows[j].cells[1]).text();
 		json_chart_labels.push(weight_date);
 		json_chart_weight.push(weight);
 	}
