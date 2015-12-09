@@ -23,7 +23,7 @@ function updateGraphs(){
 	//debugger;
 	for(j=0; j<rows.length; j++){
 		//var weight_date = rows[j].cells[0].innerText;
-		var watched_date = rows[j].cells[0].innerText;
+		var watched_date = jQuery(rows[j].cells[0]).text();
 		year_month = watched_date.slice(0, 7)
 		if(json_chart_labels.indexOf(year_month) > -1){
 			movie_count = json_chart_movie_count[year_month];
