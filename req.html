@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Sample Project</title>
+        <script src="require.js"></script>
+        <script>
+            requirejs(["jquery/jquery-2.1.4.min"], function() {
+                $("#status").html("Sucess jquery is loaded");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="status">Loading</div>
+    </body>
+</html>
