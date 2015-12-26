@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Sample Project</title>
+        <script>
+            function loadCss(url) {
+                var link = document.createElement("link");
+                link.type = "text/css";
+                link.rel = "stylesheet";
+                link.href = url;
+                document.getElementsByTagName("head")[0].appendChild(link);
+            }
+        </script>
+        <script src="https://thejeshgn.com/lib_files/require.js"></script>
+        <script>
+        </script>
+    </head>
+    <body>
+        <div class="ct-chart"></div>
+    </body>
+
+    <script>
+        loadCss("https://thejeshgn.com/lib_files/chartist/chartist.min.css");
+            
+        require(["chartist/chartist.min", "jquery/jquery-2.1.4.min"], function() {
+            new Chartist.Line('.ct-chart', {
+              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              series: [
+                [12, 9, 7, 8, 5],
+                [2, 1, 3.5, 7, 3],
+                [1, 3, 4, 5, 6]
+              ]
+            }, {
+              fullWidth: true,
+              chartPadding: {
+                right: 40
+              }
+            });
+
+        });
+
+    </script>
+
+</html>
