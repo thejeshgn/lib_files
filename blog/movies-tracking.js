@@ -21,7 +21,7 @@ jQuery.cachedScript = function( url, options ) {
 
 loadCss("https://thejeshgn.com/lib_files/chartist/chartist.min.css");
 
-$.getScript("https://thejeshgn.com/lib_files/chartist/chartist.min.js", function() {
+jQuery.getScript("https://thejeshgn.com/lib_files/chartist/chartist.min.js", function() {
 	
 	updateGraphs = function(){
 		if (jQuery('#graph_display_div_id').css('display') == 'none') {
