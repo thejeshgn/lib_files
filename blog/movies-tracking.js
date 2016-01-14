@@ -6,9 +6,23 @@ function loadCss(url) {
 	document.getElementsByTagName("head")[0].appendChild(link);
 }
 
-require(["https://thejeshgn.com/lib_files/chartist/chartist.min.js"], function() {
+jQuery.cachedScript = function( url, options ) {
+  // Allow user to set any option except for dataType, cache, and url
+  options = $.extend( options || {}, {
+    dataType: "script",
+    cache: true,
+    url: url
+  });
+ 
+  // Use $.ajax() since it is more flexible than $.getScript
+  // Return the jqXHR object so we can chain callbacks
+  return jQuery.ajax( options );
+};
+
+loadCss("https://thejeshgn.com/lib_files/chartist/chartist.min.css");
+
+$.getScript("https://thejeshgn.com/lib_files/chartist/chartist.min.js", function() {
 	
-	loadCss("https://thejeshgn.com/lib_files/chartist/chartist.min.css");
 	updateGraphs = function(){
 		if (jQuery('#graph_display_div_id').css('display') == 'none') {
 			jQuery('#graph_display_div_id').show();
