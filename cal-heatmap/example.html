@@ -1,0 +1,58 @@
+<html>
+<head>
+<script type="text/javascript" src="//thejeshgn.com/lib_files/d3/d3-3.5.13.min.js"></script>
+<script type="text/javascript" src="//thejeshgn.com/lib_files/cal-heatmap/cal-heatmap-3.5.2.min.js"></script>
+<link rel="stylesheet" href="//thejeshgn.com/lib_files/cal-heatmap/cal-heatmap.3.5.2.css" />
+</head>
+</body>
+
+
+
+</body>
+<script>
+var startDate = new Date(2013, 6, 25);
+var startTimestamp = new Date(2013, 6, 1).getTime()/1000;
+
+function GAconverter(data) {
+	var i, total, results = {};
+	for(i = 0, total = data.length; i < total; i++) {
+		results[+data[i].Hour * 3600 + startTimestamp] = +data[i].Visits;
+	}
+	return results;
+}
+
+var cal = new CalHeatMap();
+cal.init({
+	itemSelector: "#example-k",
+	domain: "day",
+	subDomain: "hour",
+	rowLimit: 1,
+	cellSize: 15,
+	domainGutter: 0,
+	verticalOrientation: true,
+	label: {
+		position: "left",
+		offset: {
+			x: 20,
+			y: 12
+		},
+		width: 110
+	},
+	data: "http://cal-heatmap.com/google-analytics.csv",
+	dataType: "csv",
+	start: startDate,
+	afterLoadData: GAconverter,
+	range: 10,
+	itemName: "visit",
+	legend: [5, 10, 15, 20, 25, 30],
+	legendHorizontalPosition: "right",
+	legendColors: {
+		empty: "#ededed",
+		min: "#40ffd8",
+		max: "#f20013"
+	}
+});
+</script>
+</html>
+
+
