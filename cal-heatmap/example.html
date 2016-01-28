@@ -1,11 +1,13 @@
 <html>
 <head>
+	<title>Sleep 2016 </title>
 <script type="text/javascript" src="//thejeshgn.com/lib_files/d3/d3-3.5.13.min.js"></script>
 <script type="text/javascript" src="//thejeshgn.com/lib_files/cal-heatmap/cal-heatmap-3.5.2.min.js"></script>
 <link rel="stylesheet" href="//thejeshgn.com/lib_files/cal-heatmap/cal-heatmap.3.5.2.css" />
 </head>
 </body>
-<div id="example-k">
+<h2>Sleep pattern for 2016</h2>
+<div id="example-k" style="width: 1000px;">
 
 
 </div>	
@@ -13,14 +15,40 @@
 
 </body>
 <script>
-var startDate = new Date(2013, 6, 25);
-var startTimestamp = new Date(2013, 6, 1).getTime()/1000;
+var now = new Date();
+var start = new Date(now.getFullYear(), 0, 0);
+var diff = now - start;
+var oneDay = 1000 * 60 * 60 * 24;
+var day = Math.floor(diff / oneDay);
+
+var startDate = new Date("2016-01-01");
+var endDate = Date.now();
+
+var startTimestamp = 1451586600;
 
 function GAconverter(data) {
-	var i, total, results = {};
-	for(i = 0, total = data.length; i < total; i++) {
-		results[+data[i].Hour * 3600 + startTimestamp] = +data[i].Visits;
+	var results = {};
+	total = data.length;
+	console.log(total);
+	currentTimeStamp = startTimestamp;
+	for(i = 0; i < total; i++) {
+		console.log(data[i].Start);
+		console.log(data[i].End);
+		
+		start = new Date(data[i].Start).getTime()/1000;
+		end = new Date(data[i].End).getTime()/1000;
+		console.log(start);
+		console.log(end);
+		console.log(currentTimeStamp);
+		while(currentTimeStamp <= end){
+			console.log("inside while");
+			if(currentTimeStamp >= start){
+				results[currentTimeStamp] = parseInt(data[i].Rate);
+			}
+			currentTimeStamp = currentTimeStamp + 3600;				
+		}
 	}
+	console.log(results);
 	return results;
 }
 
@@ -36,23 +64,25 @@ cal.init({
 	label: {
 		position: "left",
 		offset: {
-			x: 20,
-			y: 12
+			x: 10,
+			y: 10
 		},
 		width: 110
 	},
-	data: "http://cal-heatmap.com/google-analytics.csv",
+	data: "./example.csv",
 	dataType: "csv",
+	range: day,
 	start: startDate,
 	afterLoadData: GAconverter,
-	range: 10,
-	itemName: "visit",
-	legend: [5, 10, 15, 20, 25, 30],
+	itemName: "Rate",
+	legend: [1, 2, 3, 4, 5],
 	legendHorizontalPosition: "right",
+	legendVerticalPosition:"bottom",
+	highlight: ["now"],
 	legendColors: {
 		empty: "#ededed",
-		min: "#40ffd8",
-		max: "#f20013"
+		max: "chartreuse",
+		min: "red"
 	}
 });
 </script>
