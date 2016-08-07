@@ -35,6 +35,6 @@ function drawCloud(canvas_id, data){
  jQuery.getJSON("https://laingentsoneingetterepiv:c36d687425e770805c8f947c372f80d9c8777bb8@thejeshgn.cloudant.com/proudof_grateful/_design/summary/_view/count_grateful?group=true&callback=?", function(result){
          load_grateful(result);
         });
- jQuery.getJSON("https://laingentsoneingetterepiv:c36d687425e770805c8f947c372f80d9c8777bb8thejeshgn.cloudant.com/proudof_grateful/_design/summary/_view/count_proud?group=true&callback=?", function(result){
+ jQuery.getJSON("https://laingentsoneingetterepiv:c36d687425e770805c8f947c372f80d9c8777bb8@thejeshgn.cloudant.com/proudof_grateful/_design/summary/_view/count_proud?group=true&callback=?", function(result){
          load_proudof(result);
         });
