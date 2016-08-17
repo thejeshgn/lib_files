@@ -7,7 +7,7 @@ function load_proudof(data){
 
 function drawCloud(canvas_id, data){
         var can = document.getElementById(canvas_id);
-        var wid = window.innerWidth-200;
+        var wid = window.innerWidth*0.60;
         can.style.width = wid + "px";
 
 	var settings = {
