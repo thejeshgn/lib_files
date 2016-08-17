@@ -6,11 +6,14 @@ function load_proudof(data){
 }
 
 function drawCloud(canvas_id, data){
+        var can = document.getElementById(canvas_id);
+        var wid = window.innerWidth-200;
+        can.style.width = wid + "px";
 
 	var settings = {
-	  gridSize: Math.round(16 * jQuery("#"+canvas_id).width() / 1024),
+	  gridSize: Math.round(10 * jQuery("#"+canvas_id).width() / wid),
 	  weightFactor: function (size) {
-	    return Math.pow(size, 5) * jQuery("#"+canvas_id).width() / 1024;
+	    return Math.pow(size, 4) * jQuery("#"+canvas_id).width() / wid;
 	  },
 	  fontFamily: 'Times, serif',
 	  color: function (word, weight) {
