@@ -17,7 +17,7 @@ function drawCloud(canvas_id, data){
 	  },
 	  fontFamily: 'Times, serif',
 	  color: function (word, weight) {
-	    return (weight === 12) ? '#f02222' : '#c09292';
+	    return (weight === 12) ? '#f02222' : '#d70206';
 	  },
 	  rotateRatio: 0.5,
 	  backgroundColor: '#ffffff'
