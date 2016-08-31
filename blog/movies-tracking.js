@@ -1,28 +1,3 @@
-function loadCss(url) {
-	var link = document.createElement("link");
-	link.type = "text/css";
-	link.rel = "stylesheet";
-	link.href = url;
-	document.getElementsByTagName("head")[0].appendChild(link);
-}
-
-jQuery.cachedScript = function( url, options ) {
-  // Allow user to set any option except for dataType, cache, and url
-  options = $.extend( options || {}, {
-    dataType: "script",
-    cache: true,
-    url: url
-  });
- 
-  // Use $.ajax() since it is more flexible than $.getScript
-  // Return the jqXHR object so we can chain callbacks
-  return jQuery.ajax( options );
-};
-
-loadCss("https://thejeshgn.com/lib_files/chartist/chartist.min.css");
-
-jQuery.getScript("https://thejeshgn.com/lib_files/chartist/chartist.min.js", function() {
-	
 	updateGraphs = function(){
 		if (jQuery('#graph_display_div_id').css('display') == 'none') {
 			jQuery('#graph_display_div_id').show();
@@ -89,4 +64,3 @@ jQuery.getScript("https://thejeshgn.com/lib_files/chartist/chartist.min.js", fun
 			});
 
 	}
-});
