@@ -31,16 +31,16 @@ function addLanguageStatus(result){
     for (var i = 0; i < data.length; i++) { 
         data_item = data[i];
         if(data_item["type"]=="all"){
-            all_count = data_item["values"];
+            all_count = data_item["count"];
         }
         if(data_item["type"]=="nodes"){
-            nodes_count = data_item["values"];            
+            nodes_count = data_item["count"];            
         }
         if(data_item["type"]=="ways"){
-            ways_count = data_item["values"];            
+            ways_count = data_item["count"];            
         }
         if(data_item["type"]=="relations"){
-            relations_count = data_item["values"];            
+            relations_count = data_item["count"];            
         }
     }
     language_status = {"Language":language, "Status":lang, "All":all_count, "Nodes":nodes_count, "Ways":ways_count,"Relations":relations_count };
