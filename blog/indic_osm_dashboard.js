@@ -1,6 +1,6 @@
 var language_table_id = "#tablepress-20";
 var language_status = {}
-var languages ={"kn":"Kannada", "hi":"Hindi","ml":"Malayalam","ta":"Tamil","mr":"Marathi","gu":"Gujarati","te":"Telugu"}
+var languages ={"brx":"Bodo","doi":"Dogri","kok":"Konkani ","mai":"Maithili","mni":"Manipuri","sa":"Sanskrit","ur":"Urdu","sd":"Sindhi","pa":"Punjabi","or":"Odia","ne":"Nepali","as":"Assamese","bn":"Bengali","ks":"Kashmiri","kn":"Kannada", "hi":"Hindi","ml":"Malayalam","ta":"Tamil","mr":"Marathi","gu":"Gujarati","te":"Telugu"}
 var lang_keys = Object.keys(languages);
 
 //http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html
