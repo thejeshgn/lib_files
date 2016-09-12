@@ -1,6 +1,6 @@
-language_table_id = "#tablepress-20";
+var language_table_id = "#tablepress-20";
 var language_status = {}
-var languages ={"kn":"Kannada", "hi":"Hindi","ml":"Malayalam","ta":"Tamil"}
+var languages ={"kn":"Kannada", "hi":"Hindi","ml":"Malayalam","ta":"Tamil","mr":"Marathi","gu":"Gujarati","te":"Telugu"}
 var lang_keys = Object.keys(languages);
 
 //http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html
@@ -46,9 +46,10 @@ function addLanguageStatus(result){
     language_status = {"Language":language, "Status":lang, "All":all_count, "Nodes":nodes_count, "Ways":ways_count,"Relations":relations_count };
     data_row =[language, lang, all_count,nodes_count,ways_count,relations_count];
     if ( jQuery.fn.dataTable.isDataTable( language_table_id ) ) {
-        //var rows = jQuery('#tablepress-7').DataTable().$('tr', {"filter":"applied"});
         var table = jQuery(language_table_id).DataTable();
-        table.row.add(data_row).draw();
+        var node = table.row.add(data_row).draw().node();
+        table.order([ 2, 'desc' ] ).draw();
+        //jQuery(node).css( 'color', 'red' ).animate( { color: 'black' } );
 
     }else{
         console.log("DataTable is not initialized yet");
@@ -56,14 +57,15 @@ function addLanguageStatus(result){
     }
 }
 
-
-for (var i = 0; i < lang_keys.length; i++) { 
-    lang_code =  lang_keys[i];
-    console.log(lang_code);
-    lang = languages[lang_code];
-    console.log(lang);
-    jQuery.getJSON("https://taginfo.openstreetmap.org/api/4/key/stats?key=name:"+lang_code+"&callback=?", function(result){
-            console.log(result);
-            addLanguageStatus(result);
-    });
-}
+jQuery(document).ready(function($){
+    for (var i = 0; i < lang_keys.length; i++) { 
+        lang_code =  lang_keys[i];
+        console.log(lang_code);
+        lang = languages[lang_code];
+        console.log(lang);
+        jQuery.getJSON("https://taginfo.openstreetmap.org/api/4/key/stats?key=name:"+lang_code+"&callback=?", function(result){
+                //console.log(result);
+                addLanguageStatus(result);
+        });
+    }
+});
