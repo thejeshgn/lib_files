@@ -63,7 +63,7 @@ jQuery(document).ready(function($){
         console.log(lang_code);
         lang = languages[lang_code];
         console.log(lang);
-        jQuery.getJSON("https://taginfo.openstreetmap.in/api/4/key/stats?key=name:"+lang_code+"&callback=?", function(result){
+        jQuery.getJSON("https://taginfo.openstreetmap.org/api/4/key/stats?key=name:"+lang_code+"&callback=?", function(result){
                 //console.log(result);
                 addLanguageStatus(result);
         });
