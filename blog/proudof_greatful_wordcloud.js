@@ -8,7 +8,10 @@ function load_proudof(data){
 function drawCloud(canvas_id, data){
         var can = document.getElementById(canvas_id);
         var wid = window.innerWidth*0.60;
-        can.style.width = wid + "px";
+        if (wid > 1350){
+          wid = 1200;
+        }
+	can.style.width = wid + "px";
 
 	var settings = {
 	  gridSize: Math.round(10 * jQuery("#"+canvas_id).width() / wid),
