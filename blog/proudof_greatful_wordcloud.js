@@ -14,9 +14,9 @@ function drawCloud(canvas_id, data){
 	can.style.width = wid + "px";
 
 	var settings = {
-	  gridSize: Math.round(10 * jQuery("#"+canvas_id).width() / wid),
+	  gridSize: Math.round(7 * jQuery("#"+canvas_id).width() / wid),
 	  weightFactor: function (size) {
-	    return Math.pow(size, 4) * jQuery("#"+canvas_id).width() / wid;
+	    return Math.pow(size, 3) * jQuery("#"+canvas_id).width() / wid;
 	  },
 	  fontFamily: 'Times, serif',
 	  color: function (word, weight) {
@@ -29,6 +29,7 @@ function drawCloud(canvas_id, data){
 
 	var newData = [];
 	var rows = data.rows;
+	rows.sort(compare);
 	for (var i = 0; i < rows.length; i++) {
 		var d = [];
 		newData.push([rows[i]['key'],rows[i]['value'] ]);
@@ -38,6 +39,16 @@ function drawCloud(canvas_id, data){
 	s = WordCloud(document.getElementById(canvas_id), settings );
 
 }
+
+function compare(a,b) {
+  if (a.value < b.value)
+    return 1;
+  if (a.value > b.value)
+    return -1;
+  return 0;
+}
+
+
  jQuery.getJSON("https://laingentsoneingetterepiv:c36d687425e770805c8f947c372f80d9c8777bb8@thejeshgn.cloudant.com/proudof_grateful/_design/summary/_view/count_grateful?group=true&callback=?", function(result){
          load_grateful(result);
         });
