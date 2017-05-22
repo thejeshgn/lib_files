@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>KLIPSE: a simple and elegant online cljs compiler and evaluator</title>
+        <link rel='shortcut icon' type='image/x-icon' href='img/klipse.png' />
+        <link rel="stylesheet" type="text/css" href="codemirror.css">
+    </head>
+    <body>
+    <h1>
+    Code evaluation
+    </h1>
+    <p>
+    Let's see how to create a live code snippet.
+    First a very simple expression:
+    </p>
+    <div class="clojure">
+        (map inc [1 2 3])
+    </div>
+    <p>
+    And now something that requires another namespace:
+    </p>
+    <div class="clojure">
+        (ns my.set 
+        (:require [clojure.set :as set]))
+
+        (set/union #{1 2} #{2 3} #{3 4})
+    </div>
+    <p>
+    And <b>:refer</b> works as well:
+
+    </p>
+    <div class="clojure">
+        (ns my.set 
+          (:require [clojure.set :refer [map-invert]]))
+
+          (map-invert {:cljs "simple" :js "complicated"})
+    </div>
+    <br/>
+    <h1>
+    Code transpilation to javascript
+    </h1>
+<p>
+    Let's see how to create a live code transpiler.
+    First a very simple expression:
+    </p>
+    <div class="clojure-js">
+        (let [x 42]
+           (+ x 2))
+    </div>
+    <p>
+    Now, let's see the two ways to transpile code that involves function calls. 
+    </p>
+    <p>
+    This is the regular way:
+    </p>
+    <div class="clojure-js">
+        (map inc [1 2 3])
+    </div>
+    <p>
+    And this is with <b>:static-fns</b> set to true - there is a html attribute <b>data-static-fns="true"</b>:
+    </p>
+    <div class="clojure-js" data-static-fns="true">
+        (map inc [1 2 3])
+    </div>
+   <script>
+        window.klipse_settings = {
+            selector: '.clojure',
+            selector_js: '.clojure-js'
+        };
+        </script>
+        <script src="klipse_plugin.js"></script>
+    </body>
+</html>
