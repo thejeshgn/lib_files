@@ -1,0 +1,89 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://lib.thejeshgn.in/lib_files/datatable/media/css/jquery.dataTables.min.css">
+<script src="https://lib.thejeshgn.in/lib_files/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://lib.thejeshgn.in/lib_files/datatable/media/js/jquery.dataTables.min.js"></script>
+<script src="https://lib.thejeshgn.in/lib_files/storejs/store.legacy.min.js"></script>
+</head>
+<body>
+  <table id="example" class="display" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>BSSID</th>
+                  <th>SSID</th>
+                  <th>Capability</th>
+                  <th>Frequency</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>BSSID</th>
+                  <th>SSID</th>
+                  <th>Capability</th>
+                  <th>Frequency</th>
+              </tr>
+          </tfoot>
+      </table>
+</body>
+<script>
+var oTable;
+$(document).ready(function() {
+        var cred = store.get('cred');
+        if(cred && cred !=""){
+          //do nothing
+        }else{
+          cred = prompt("Please enter username:passowrd in that format");
+          store.set('cred',cred);
+        }
+
+
+         oTable =  $('#example').dataTable( {
+            "bSort" : false,
+            "searching": true,
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                      "url": "https://thejeshgn.cloudant.com/wifi_tracker_db/_all_docs?include_docs=true",
+                      "dataSrc": "rows",
+                      "data": function ( d ) {
+                              d.limit = d.length;
+                              d.skip =d.start;
+                              if(d.search && d.search["value"] && d.search["value"] != "" ){
+                                    d.key='"'+d.search["value"]+'"';     
+                                    delete d.search["value"];
+                                    delete d.search["regex"];          
+                                }
+                              console.log(d);
+                        },
+                      "beforeSend": function (xhr) {
+                          xhr.setRequestHeader ("Authorization", "Basic " + btoa(cred));
+                        },
+
+                      "dataFilter": function(data) {
+                          console.log(data);
+                          var data = JSON.parse(data);
+                          data['recordsTotal']= data["total_rows"];
+                          data['recordsFiltered']= data["total_rows"];
+                          return JSON.stringify(data);
+                        }
+              }, //END AJAX
+              "columns":[
+                  {"data":"doc._id"},
+                  {"data":"doc.ssid"},
+                  {"data":"doc.capability"},
+                  {"data":"doc.frequency"},
+                ]
+        } );// End: DataTable
+         
+
+     $('#example_filter input').unbind();
+     $('#example_filter input').bind('keyup', function(e) {
+         if(e.keyCode == 13) {
+          oTable.fnFilter(this.value);   
+      }
+     });
+
+
+} );//onload
+</script>
+</html>
