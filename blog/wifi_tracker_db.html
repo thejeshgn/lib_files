@@ -1,0 +1,169 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://lib.thejeshgn.in/lib_files/datatable/media/css/jquery.dataTables.min.css">
+<script src="https://lib.thejeshgn.in/lib_files/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://lib.thejeshgn.in/lib_files/datatable/media/js/jquery.dataTables.min.js"></script>
+<script src="https://lib.thejeshgn.in/lib_files/storejs/store.legacy.min.js"></script>
+<style>
+td.details-control {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACjElEQVR4Aa2V30uTURjHnVBUgglCaXVTJJVLMdhQm7+1JEvJiKAggmgSQiKJl0V0E13UVf0HQZmBLcvlpqa55tqV0YoMzIhY6js0yDH11X17vuO8Sq5Zgl/48DznPD/G63nOMSmBkoUNwhYhTUgn9NUeY8z5p0wqOVXYKRwQLMJhhYV7Kpaqck2rNdskbBPMdrv9osfjcQaDwW/RaHSR0OceY8xhrqox/a3ZZmGHkO9wOB7ouj6PBGKMOcxlzcqmdDYKGZmZmSWjo6PvIYosRuDWXGj50IwTb4+hxleN5sAVvJh4jvBCGBRzWSO121UPk3EAaUKuz+d7ycTp+Wnc/nwL1d4qHBVidmjZv/npBkJzGiiv19vFWmGrcVDsvKupqeky/056VMf1j9dQOViBKo9Aa/ixdbnYcrQGWsBc1jQ2NtrZQ/VKShHM8kvdEPVN9qJsoBRl/aUoHyiJ+UpcCxJTtmfCDYoHJT2yYyOlPtcaCoUmGGwdbkVRbxGK+2y0gg2GisUvNmJCy/BVUJqm/eBIxXqpgbUtiBise12HQlc+ClwFSKRCiZH6wXpQs7OzETWn6XENa/trYemywuK0IpGsTotgRU3fcVBzouWG6pOnpqY0BhuGGpDXeUjIW7JKcfuX3tjjP9k4FBkZN4PtY+042JGzzNMcGDJ35C7tmcU++tJmjE63OpSUuLEJ62GcfXUO+59kr8rJnlOY0WfAGtYaY/PHYPv9fhdEY7++4nz/BWS17UPWY0Es2avWp3vOYOTnCCheBtaqHskJr95kZBL3AvdR2XkEex5mYbdQ+qwCd97dRTAcXHn1Moyrt16PA2tN//V8jY+Pf4cS/VWerzU9sDay1gd2Xf4F/AZqlpeB9836LwAAAABJRU5ErkJggg==') no-repeat center center;
+    cursor: pointer;
+}
+tr.details td.details-control {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACdUlEQVR4Aa2V30tTYRjHVSgsoQKhXPUPlKZMlImiIIg/pggiiDeCBAdqyC4Kf9zVhVdeelX33QnCbtYvxZsxxkoqKxiz1SzdFudMb5xO5/bt+fa+sPCw3IVf+PA+532e5ytn53lfK0qoSrggXBauCbUKxtxjjjVnq1IXXxFuCXeEFqGdMOYec6zRtZX/M6sWrgv1hmHcDwQCLxOJxM9CoZAnjLnHHGt0bbXdVG1cEm4KLp/P9yKXyx2jhJhjDWvZc9qUwUWhzuFwdMVisc8QFQ4PcbCygvT0NJLDw0gNDSH96DEyfj8KmQwo1rJHem8oD2VapX/sxlAo9Aqi/N4e9hYWsDMwgARxD2DH7ZZYren5eZxYFqhgMOhnr3BVeSnn216v98Hf3yqXg/X0CX719YFs9/WquJfPGtkzZ2fBWvZ4PB6DHtqrokaol7/0GqLM2hq2enpsxMmpvf3VVVD8UOJxV42Uet1Wy7J+M5mam8P37u6ySM7MgDJNM8mRUl5qYDtOREz+GB3FZlcXNjs7UUrMk/jYGKhsNnuo57TWZhgTw0hHO0EpRdpV/tvICKgjUdFQv/Lu7q7JZHxqCl9dLqGtSJtL4VJ80Wvc8xD2V9YfRUbmLZPp5WVstLTYaSWt+lmt1tISKH5Q/VFqbGOTl6GNTk7iQ3Oz4FSrU8UfuTqdBJHxceQz+2APe/8Zm+Jgh8PhNxBlt7YQNQysNzVivbEJ7wXGiiZEJiZwEI2C4mFgr/aoKnn0jk0TiWfPsTE4iHcN9xBuaMCn/n5sLy7iKJk8ffTqikfvfC4H9laWdX2lUqltaDEu9/o664LtIOVfsOf4L+APb5yaiwyN8+8AAAAASUVORK5CYII=') no-repeat center center;
+}
+</style>
+</head>
+<body>
+  <table id="example" class="display" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th></th>
+                  <th>BSSID</th>
+                  <th>SSID</th>
+                  <th>Capability</th>
+                  <th>Frequency</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th></th>
+                  <th>BSSID</th>
+                  <th>SSID</th>
+                  <th>Capability</th>
+                  <th>Frequency</th>
+              </tr>
+          </tfoot>
+      </table>
+</body>
+<script>
+var oTable;
+
+function format ( d ) {
+    return 'Name: '+d.doc.ssid+' <br> MAC:'+d.doc._id+'<br>'+mapDiv(d.doc.geometry);
+}
+
+function mapDiv(geoJson){
+  let lng = geoJson["coordinates"][0];
+  let lat = geoJson["coordinates"][1];
+  imgURL = "http://staticmap.openstreetmap.de/staticmap.php?center="+lat+","+lng;
+  imgURL = imgURL + "&zoom=21&size=865x512&maptype=mapnik&markers="+lat+","+lng+",lightblue1";
+
+  //imgURL="http://maps.googleapis.com/maps/api/staticmap?center="+lng+","+lat;
+  //imgURL = imgURL+",&zoom=17&size=400x300&markers=color:blue|label:P|,&sensor=true";
+  return "<img src='"+imgURL+"'>";
+
+}
+
+
+$(document).ready(function() {
+        var cred = store.get('cred');
+        if(cred && cred !=""){
+          //do nothing
+        }else{
+          cred = prompt("Please enter username:passowrd in that format");
+          store.set('cred',cred);
+        }
+
+
+         oTable =  $('#example').dataTable( {
+            "bSort" : false,
+            "searching": true,
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                      "url": "https://thejeshgn.cloudant.com/wifi_tracker_db/_all_docs?include_docs=true",
+                      "dataSrc": "rows",
+                      "data": function ( d ) {
+                              d.limit = d.length;
+                              d.skip =d.start;
+                              if(d.search && d.search["value"] && d.search["value"] != "" ){
+                                    d.key='"'+d.search["value"]+'"';     
+                                    delete d.search["value"];
+                                    delete d.search["regex"];          
+                                }
+                              console.log(d);
+                        },
+                      "beforeSend": function (xhr) {
+                          xhr.setRequestHeader ("Authorization", "Basic " + btoa(cred));
+                        },
+
+                      "dataFilter": function(data) {
+                          console.log(data);
+                          var data = JSON.parse(data);
+                          data['recordsTotal']= data["total_rows"];
+                          data['recordsFiltered']= data["total_rows"];
+                          return JSON.stringify(data);
+                        }
+              }, //END AJAX
+              "columns":[
+                  {
+                    "class":          "details-control",
+                    "orderable":      false,
+                    "data":           null,
+                    "defaultContent": ""
+                  },
+                  {"data":"doc._id"},
+                  {"data":"doc.ssid"},
+                  {"data":"doc.capability"},
+                  {"data":"doc.frequency"},
+                ]
+        } );// End: DataTable
+         
+    //FITER SETUP START
+     $('#example_filter input').unbind();
+     $('#example_filter input').bind('keyup', function(e) {
+         if(e.keyCode == 13) {
+          oTable.fnFilter(this.value);   
+      }
+     });
+     //FILTER SETUP END
+
+
+     //START
+      var detailRows = [];
+     $('#example tbody').on( 'click', 'tr td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = oTable.api().row( tr );
+            var idx = $.inArray( tr.attr('id'), detailRows );
+     
+            if ( row.child.isShown() ) {
+                tr.removeClass( 'details' );
+                row.child.hide();
+     
+                // Remove from the 'open' array
+                detailRows.splice( idx, 1 );
+            }
+            else {
+                tr.addClass( 'details' );
+                row.child( format( row.data() ) ).show();
+     
+                // Add to the 'open' array
+                if ( idx === -1 ) {
+                    detailRows.push( tr.attr('id') );
+                }
+            }
+        } );
+
+      oTable.on( 'draw', function () {
+          $.each( detailRows, function ( i, id ) {
+              $('#'+id+' td.details-control').trigger( 'click' );
+          } );
+      } );
+
+     //END
+
+
+
+
+
+
+
+
+
+
+
+
+} );//onload
+</script>
+</html>

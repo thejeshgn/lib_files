@@ -19,6 +19,32 @@ function updateGraphs(){
 	
 	var json_chart_labels = [];
 	var json_chart_movie_count = {};
+	var currentTime = new Date();
+	var current_year =  currentTime.getFullYear();
+	var current_month = currentTime.getMonth() + 1;
+	for(start_year=2012; start_year <= current_year;  start_year++){
+			//console.log(start_year);
+			final_month=12;
+			if(start_year == current_year){
+				final_month = current_month;
+			}
+
+		for(start_month=1;  start_month <= final_month; start_month++){
+			if(start_month < 10){
+				year_month = ""+start_year+"-0"+start_month;
+			}else{
+				year_month = ""+start_year+"-"+start_month;
+			}
+			
+			console.log(year_month);
+			json_chart_labels.unshift(year_month);
+			json_chart_movie_count[year_month]=0;
+		}
+	}
+
+
+
+
 	var json_chart_movie_count_array = [];
 	//debugger;
 	for(j=0; j<rows.length; j++){
@@ -49,7 +75,7 @@ function updateGraphs(){
 		  ]
 		}, {
 			    reverseData: true,
-			    fullWidth: false,
+			    fullWidth: true,
 				low:'2008-03',
 				chartPadding: {
 					right: 10
@@ -58,8 +84,10 @@ function updateGraphs(){
 					onlyInteger: true
 				},
 				axisX: {
-					
-					showLabel: true
+					labelInterpolationFnc: function (value, index) {
+                    return index % 12 === 0 ? value : null;
+                	}
+
 				}	
 		});
 
