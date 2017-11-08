@@ -1,3 +1,7 @@
+/*
+Needs the script
+https://lib.thejeshgn.com/lib_files/frappe_charts/frappe-charts.min.iife.js
+*/
 var books_by_year_chart;
 function updateGraphs(){
 	if (jQuery('#graph_display_div_id').css('display') == 'none') {
@@ -39,7 +43,7 @@ function updateGraphs(){
 				}
 				
 				console.log(year_month);
-				json_chart_labels.unshift(year_month);
+				json_chart_labels.push(year_month);
 				json_chart_movie_count[year_month]=0;
 			}
 		}
