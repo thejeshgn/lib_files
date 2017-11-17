@@ -1798,7 +1798,7 @@ var PDFViewerApplication = {
 };
 var validateFileURL;
 {
-  var HOSTED_VIEWER_ORIGINS = ['null', 'http://mozilla.github.io', 'https://mozilla.github.io','https://thejeshgn.com','http://data.opencity.in','http://datameet.org','http://opencity.in','http://archive.org','https://lib.thejeshgn.in'];
+  var HOSTED_VIEWER_ORIGINS = ['null', 'http://mozilla.github.io', 'https://mozilla.github.io','https://thejeshgn.com','http://data.opencity.in','http://datameet.org','http://opencity.in','http://archive.org','https://lib.thejeshgn.in','https://archive.org','https://lib.thejeshgn.com'];
   validateFileURL = function validateFileURL(file) {
     try {
       var viewerOrigin = new URL(window.location.href).origin || 'null';
