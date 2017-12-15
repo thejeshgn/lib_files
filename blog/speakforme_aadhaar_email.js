@@ -13,7 +13,6 @@ function formatDateHour() {
 
  
 function drawGraphs(returned_data){
-  console.log(returned_data);
   let rows = _.reverse(returned_data.rows);
   let total_rows = returned_data.total_rows;  
   let latest_row = _.last(rows);
@@ -123,7 +122,9 @@ function drawGraphs(returned_data){
 
 //Make the call
  $.ajax({
-  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&&descending=true&clear="+formatDateHour(),
+  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222018%22&endkey=%222017%22&descending=true&clear="+formatDateHour(),
+  contentType: "application/json",
+  dataType:'json'
 }).done(function( data ) {
   drawGraphs(data);
 
