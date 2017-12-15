@@ -57,11 +57,11 @@ function drawGraphs(returned_data){
         values:banks
       },
       {
-        title: "Mobile service providers",
+        title: "Mobile",
         values:mobile
       },
       {
-        title: "Government services",
+        title: "Govt",
         values:govt
       },
       {
