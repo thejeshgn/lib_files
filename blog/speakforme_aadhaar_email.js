@@ -14,7 +14,9 @@ function formatDateHour() {
 
  
 function drawGraphs(returned_data){
-  let rows = _.reverse(returned_data.rows);
+  let all_rows = _.reverse(returned_data.rows);
+  //Filter emails sent
+  let rows =  _.filter(all_rows, function(o) { return o.doc.stat == "email_sent" && o.doc.campaign == "#SpeakForMe"});
   let total_rows = returned_data.total_rows;  
   let latest_row = _.last(rows);
   console.log(latest_row);
