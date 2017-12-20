@@ -4,7 +4,7 @@ function formatDateHour() {
         day = '' + d.getDate(),
         year = d.getFullYear();
         hour = d.getHours();
-        min = d.getMinutes();
+        min = Math.ceil(d.getMinutes()/15);
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
@@ -123,7 +123,7 @@ function drawGraphs(returned_data){
 
 //Make the call
  $.ajax({
-  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222018%22&endkey=%222017%22&descending=true&clear="+formatDateHour(),
+  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222018%22&endkey=%222017%22&descending=true&limit=300&clear="+formatDateHour(),
   contentType: "application/json",
   dataType:'json'
 }).done(function( data ) {
