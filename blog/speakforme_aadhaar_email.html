@@ -3,6 +3,38 @@
 	<title>#SpeakForMe Petition Live Status</title>
 	<link rel="stylesheet" href="../tufte-css/tufte.css"/>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<style>
+#map {
+    width: 99%;
+    height: 800px;
+}
+#map .info {
+    padding: 6px 8px;
+    font: 0.7rem Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+#map .info h6 {
+    font-size: 1.2rem;
+    margin: 0 0 5px;
+    color: #777;
+}
+
+#map .legend {
+    line-height: 18px;
+    color: #555;
+}
+
+#map .legend i {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+</style>
 	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 </head>	
 <body>
@@ -16,10 +48,10 @@
 
 	<h2>Emails Sent to Banks</h2>
 	<div id="emails_sent_to_banks"> </div>
-	<!--
+	
 	<h2>Emails Sent to MPs</h2>
-	<div id="map" style="width: 99%; height: 800px;"></div>
-	-->
+	<div id="map" ></div>
+	
 
 	<h2>Recent Email Traffic</h2>
 	<h3>All</h3>
@@ -40,13 +72,19 @@
 <script type='text/javascript' src="../jquery/jquery-2.1.4.min.js"></script>	
 <script type='text/javascript' src='../frappe_charts/frappe-charts.min.iife.js'></script>
 <script type='text/javascript' src='../lodash/lodash-4.17.4.min.js'></script>
+<script type='text/javascript' src='../d3/d3-3.5.13.min.js'></script>
 <script>
-	var mp_map = L.map('map').setView([22.2302249,74.5080592], 5);
+  var map = L.map('map',{scrollWheelZoom:false}).setView([23.40, 83.00], 5);
+  //var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
+  //var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
+  //L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'openstreetmap.1b68f018'}).addTo(map);
 
-	var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
-	var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
-	L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'openstreetmap.1b68f018'}).addTo(mp_map);
-	
+	L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
+
+  var mp_emails_sent = [];
 </script>
 <script type='text/javascript' src='../blog/speakforme_aadhaar_email.js'></script>
 </html>

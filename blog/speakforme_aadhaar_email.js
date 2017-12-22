@@ -1,3 +1,24 @@
+var colors = ['#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'];//['#f7fcfd','#e5f5f9','#ccece6','#99d8c9','#66c2a4','#41ae76','#238b45','#006d2c','#00441b'];
+var bucket_size = 0;
+
+function getBucketNumberBasedColor(val){
+  if(val == 0){
+    return '#fff';
+  }
+  var val_min = 0;
+  var val_max = bucket_size*colors.length;
+  var index_val =0;
+  for(var i=0; i <colors.length; i++){
+      present_value = i*bucket_size;
+      if(val > present_value){
+        index_val = i;
+      }
+  }
+  console.log(colors[index_val]);
+  return colors[index_val];
+}
+
+
 function formatDateHour() {
     var d = new Date(),
         month = '' + (d.getMonth() + 1),
@@ -11,6 +32,135 @@ function formatDateHour() {
 
     return [year, month, day, hour,min].join('-');
 }
+  
+var plotPC = function(pane){
+    d3.json('../geojson/pc_14_simplified.json' , function(parcon){
+      d3.csv('../data/pc_2014_results.csv' , function(info){
+      var marker
+      var getColor = function(d) {
+                stat_code = d['properties']['stat_code'];
+                emails_sent = 0;
+                if(mp_emails_sent['doc'][stat_code]){
+                  emails_sent = mp_emails_sent['doc'][stat_code];
+                }
+                d['properties']['emails_sent']=emails_sent;
+                return getBucketNumberBasedColor(emails_sent);
+      }
+      var style = function(feature) {
+          return {
+              fillColor: getColor(feature), //this will be based on emails sent
+              weight: .25,
+              opacity: 1,
+              fillOpacity: .5
+          };
+      }
+      var infoTip = L.control();
+      infoTip.onAdd = function (map) {
+          this._div = L.DomUtil.create('div', 'info');
+          this.update();
+          return this._div;
+      };
+      infoTip.update = function (props) {
+          this._div.innerHTML = '<h6>#SpeakForMe Emails</h6>' +  (props ?
+              '<b>'+ props.winner +'</b> ( ' + props.party + ' )'+ ' <br /> <b>' +props.pcname +'</b> ( ' + props.state + ' )'+
+              ' <br />Emails : <b>' + props.emails_sent + '</b>'
+              : 'Hover over a Constituency');
+      };
+
+      infoTip.addTo(map);
+
+
+      var highlightFeature =function(e) {
+          var layer = e.target;
+
+          layer.setStyle({
+              weight: 1,
+              dashArray: '',
+              fillOpacity: 0.9
+          });
+
+          if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+              layer.bringToFront();
+        }
+        infoTip.update(layer.feature.properties);
+      }
+
+      var resetHighlight = function(e) {
+          geolayer.resetStyle(e.target);
+          infoTip.update();
+      }
+
+      var zoomToFeature = function(e) {
+          map.fitBounds(e.target.getBounds());
+      }
+
+      var onEachFeature = function(feature, layer) {
+          layer.on({
+              mouseover: highlightFeature,
+              mouseout: resetHighlight,
+              click: zoomToFeature
+          });
+      }
+
+      var getstate = function(pcnm){
+        if(pcnm == null) return 'Not Available'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? entry[0]['State'] : 'Not Available'
+      }
+      var getpcname = function(pcnm){
+        if(pcnm == null) return 'Not Available'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? entry[0]['PC Name'] : 'Not Available'
+      }
+      var getwinner = function(pcnm){
+        if(pcnm == null) return 'Not Available'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? entry[0]['Winner Candidates'] : 'Not Available'
+      }
+      var getparty = function(pcnm){
+        if(pcnm == null) return 'Not Available'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? entry[0]['winner Party'] : 'Not Available'
+      }
+      var getvotes = function(pcnm){
+        if(pcnm == null) return '-1'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? Math.round((parseInt(entry[0]['Votesw'])*10000) / (parseInt(entry[0]['Votesw']) + parseInt(entry[0]['Votesr'])))/100 : -1
+      }
+      var getcategory = function(pcnm){
+        if(pcnm == null) return 'Not Available'
+        entry = info.filter(function(d){
+          return d['PC Name'].trim() == pcnm.trim()
+        });
+        return entry.length >0 ? entry[0]['PC Type'] : 'Not Available'
+      }
+
+      for(i=0; i<parcon['features'].length ;i++){
+        parcon['features'][i]['properties']['state'] = getstate(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['pcname'] = getpcname(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['winner'] = getwinner(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['party'] = getparty(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['votes'] = getvotes(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['category'] = getcategory(parcon['features'][i]['properties']['PC_NAME'])
+        parcon['features'][i]['properties']['stat_code'] = ("mp/"+parcon['features'][i]['properties']['ST_NAME'] +"-"+ parcon['features'][i]['properties']['PC_CODE']).toLowerCase(); 
+      }
+      var geolayer = L.geoJson(parcon, {style: style, onEachFeature: onEachFeature}).addTo(map);
+
+
+    })
+  })
+};
+
 
  
 function drawGraphs(returned_data){
@@ -121,10 +271,12 @@ function drawGraphs(returned_data){
 
 
 
-
+   
 
   let rows_mailbox_email_sent = _.filter(all_rows, function(o) { return o.doc.stat == "mailbox_email_sent" && o.doc.campaign == "#SpeakForMe"});
   let latest_mailbox_email_sent = _.last(rows_mailbox_email_sent);
+  //will be used for map plotting
+  mp_emails_sent = latest_mailbox_email_sent;
 
    let latest_mobile_data = {
       labels: ["Airtel", "MTS", "MTNL", "BSNL", "Aircel", "Telenor", "Idea", "Vodafone"],
@@ -244,6 +396,11 @@ function drawGraphs(returned_data){
       });
 
 
+  bucket_size = 500/colors.length;
+
+  console.log("Plotting map");
+  plotPC('map');
+  console.log("End plotting map");
 
 
 
