@@ -173,7 +173,18 @@ var plotPC = function(pane){
         if(STATE_CODE =="HR"){
           STATE_CODE = "HA"; 
         }
-
+        if(STATE_CODE =="MN"){
+          STATE_CODE = "MA"; 
+        }
+        if(STATE_CODE =="ML"){
+          STATE_CODE = "ME"; 
+        }
+        if(STATE_CODE =="NL"){
+          STATE_CODE = "NA"; 
+        }
+        if(STATE_CODE =="MZ"){
+          STATE_CODE = "MI"; 
+        }
         parcon['features'][i]['properties']['stat_code'] = ("mp/"+STATE_CODE+"-"+ parcon['features'][i]['properties']['PC_CODE']).toLowerCase(); 
       }
       var geolayer = L.geoJson(parcon, {style: style, onEachFeature: onEachFeature}).addTo(map);
