@@ -152,7 +152,29 @@ var plotPC = function(pane){
         parcon['features'][i]['properties']['party'] = getparty(parcon['features'][i]['properties']['PC_NAME'])
         parcon['features'][i]['properties']['votes'] = getvotes(parcon['features'][i]['properties']['PC_NAME'])
         parcon['features'][i]['properties']['category'] = getcategory(parcon['features'][i]['properties']['PC_NAME'])
-        parcon['features'][i]['properties']['stat_code'] = ("mp/"+parcon['features'][i]['properties']['ST_NAME'] +"-"+ parcon['features'][i]['properties']['PC_CODE']).toLowerCase(); 
+
+        STATE_CODE = parcon['features'][i]['properties']['ST_NAME'];
+        console.log(STATE_CODE);
+        if(STATE_CODE == "OD"){          
+          STATE_CODE = "OR";
+        }
+        if(STATE_CODE == "KL"){
+          STATE_CODE = "KE";
+        } 
+        if(STATE_CODE == "CG"){
+          STATE_CODE = "CT";
+        }
+        if(STATE_CODE =="BR"){
+          STATE_CODE = "BI"; 
+        }
+        if(STATE_CODE =="UK"){
+          STATE_CODE = "UT"; 
+        }
+        if(STATE_CODE =="HR"){
+          STATE_CODE = "HA"; 
+        }
+
+        parcon['features'][i]['properties']['stat_code'] = ("mp/"+STATE_CODE+"-"+ parcon['features'][i]['properties']['PC_CODE']).toLowerCase(); 
       }
       var geolayer = L.geoJson(parcon, {style: style, onEachFeature: onEachFeature}).addTo(map);
 
