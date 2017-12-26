@@ -2,7 +2,8 @@
 <head>
 	<title>#SpeakForMe Petition Live Status</title>
 	<link rel="stylesheet" href="../tufte-css/tufte.css"/>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="../leaflet/v1.2.0/leaflet.css" />
+	<link rel="stylesheet" href="../leaflet_fullscreen/leaflet.fullscreen-v1.0.1.css" />
 <style>
 #map {
     width: 99%;
@@ -35,7 +36,6 @@
     opacity: 0.8;
 }
 </style>
-	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 </head>	
 <body>
 	<h1>#SpeakForMe Petition Live Status</h1>
@@ -69,12 +69,14 @@
 			Created by <a href="https://thejeshgn.com">Thejesh GN<a> using data obtained by parsing tweets of <a href="https://twitter.com/bulletinbabu">bulletinbabu</a>. <span id="last_updated_at"></span>.
 	</section>
 </body>
+<script type='text/javascript' src="../leaflet/v1.2.0/leaflet.js"></script>
+<script type='text/javascript' src="../leaflet_fullscreen//Leaflet.fullscreen-v1.0.1.min.js"></script>
 <script type='text/javascript' src="../jquery/jquery-2.1.4.min.js"></script>	
 <script type='text/javascript' src='../frappe_charts/frappe-charts.min.iife.js'></script>
 <script type='text/javascript' src='../lodash/lodash-4.17.4.min.js'></script>
 <script type='text/javascript' src='../d3/d3-3.5.13.min.js'></script>
 <script>
-  var map = L.map('map',{scrollWheelZoom:false}).setView([23.40, 83.00], 5);
+  var map = L.map('map',{scrollWheelZoom:false, fullscreenControl: true}).setView([23.40, 83.00], 5);
   //var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
   //var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
   //L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'openstreetmap.1b68f018'}).addTo(map);
