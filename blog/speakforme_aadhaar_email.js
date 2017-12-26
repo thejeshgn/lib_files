@@ -292,26 +292,26 @@ function drawGraphs(returned_data){
 
 
 
-    let chart_email_sent = new Chart({
-        parent: "#emails_sent",
-        title: "",
-        data: data_total,
-        is_series: 1,   
-        heatline: 1, 
-        y_axis_mode: 'span',
-        type: 'line', 
-        height: 250
-      });
+    // let chart_email_sent = new Chart({
+    //     parent: "#emails_sent",
+    //     title: "",
+    //     data: data_total,
+    //     is_series: 1,   
+    //     heatline: 1, 
+    //     y_axis_mode: 'span',
+    //     type: 'line', 
+    //     height: 250
+    //   });
 
 
-   let chart_email_sent_by_provider_date = new Chart({
-        parent: "#emails_sent_by_institution_date",
-        title: "",
-        data: data,
-        is_series: 1,   
-        type: 'bar', 
-        height: 250
-      });
+   // let chart_email_sent_by_provider_date = new Chart({
+   //      parent: "#emails_sent_by_institution_date",
+   //      title: "",
+   //      data: data,
+   //      is_series: 1,   
+   //      type: 'bar', 
+   //      height: 250
+   //    });
 
    let chart_email_sent_by_provider_percent = new Chart({
         parent: "#emails_sent_by_institution",
