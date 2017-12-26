@@ -156,39 +156,56 @@ var plotPC = function(pane){
         STATE_CODE = parcon['features'][i]['properties']['ST_NAME'];
         console.log(STATE_CODE);
         //convert from REAL to what Analytics API sends
+        //Odisha
         if(STATE_CODE == "OD"){          
           STATE_CODE = "OR";
         }
+        //Kerala
         if(STATE_CODE == "KL"){
           STATE_CODE = "KE";
         } 
+        //Chhattisgarh
         if(STATE_CODE == "CG"){
           STATE_CODE = "CT";
         }
+        //Bihar
         if(STATE_CODE =="BR"){
           STATE_CODE = "BI"; 
         }
+        //Uttarakhand
         if(STATE_CODE =="UK"){
           STATE_CODE = "UT"; 
         }
+        //Haryana
         if(STATE_CODE =="HR"){
           STATE_CODE = "HA"; 
         }
+        //Manipur
         if(STATE_CODE =="MN"){
           STATE_CODE = "MA"; 
         }
+        //Meghalaya
         if(STATE_CODE =="ML"){
           STATE_CODE = "ME"; 
         }
+        //Nagaland
         if(STATE_CODE =="NL"){
           STATE_CODE = "NA"; 
         }
+        //Mizoram
         if(STATE_CODE =="MZ"){
           STATE_CODE = "MI"; 
         }
+        //Goa
         if(STATE_CODE =="GA"){
           STATE_CODE = "GO"; 
-        }        
+        }
+        //Puducherry
+        if(STATE_CODE =="PY"){
+          STATE_CODE = "PO"; 
+        }
+
+
         parcon['features'][i]['properties']['stat_code'] = ("mp/"+STATE_CODE+"-"+ parcon['features'][i]['properties']['PC_CODE']).toLowerCase(); 
       }
       var geolayer = L.geoJson(parcon, {style: style, onEachFeature: onEachFeature}).addTo(map);
