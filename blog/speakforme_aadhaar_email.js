@@ -225,8 +225,8 @@ function drawGraphs(returned_data){
   let total_rows = returned_data.total_rows;  
   let latest_row = _.last(rows);
   console.log(latest_row);
-  $("#display_email_sent").html(latest_row['doc']["total"] +" Emails Sent Until Now.");
-  $("#last_updated_at").html("Last updated at "+latest_row['doc']["_id"]);
+  jQuery("#display_email_sent").html(latest_row['doc']["total"] +" Emails Sent Until Now.");
+  jQuery("#last_updated_at").html("Last updated at "+latest_row['doc']["_id"]);
 
 
   
@@ -461,7 +461,7 @@ function drawGraphs(returned_data){
 }//end of draGraph
 
 //Make the call
- $.ajax({
+ jQuery.ajax({
   url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222018%22&endkey=%222017%22&descending=true&limit=300&clear="+formatDateHour(),
   contentType: "application/json",
   dataType:'json'
