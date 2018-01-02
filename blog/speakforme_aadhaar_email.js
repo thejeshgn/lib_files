@@ -1,3 +1,16 @@
+  var map = L.map('map',{scrollWheelZoom:false, fullscreenControl: true}).setView([23.40, 83.00], 5);
+  //var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
+  //var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
+  //L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'openstreetmap.1b68f018'}).addTo(map);
+
+	L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
+
+var mp_emails_sent = [];
+
+
 var colors = ['#fee0d2','#fcbba1','#fc9272','#fb6a4a','#ef3b2c','#cb181d','#a50f15','#67000d'];//['#f7fcfd','#e5f5f9','#ccece6','#99d8c9','#66c2a4','#41ae76','#238b45','#006d2c','#00441b'];
 var bucket_size = 0;
 
