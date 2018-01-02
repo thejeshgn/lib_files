@@ -1,4 +1,12 @@
-  var map = L.map('map',{scrollWheelZoom:false, fullscreenControl: true}).setView([23.40, 83.00], 5);
+if(THEJESHGN_LIB_FILES){
+	console.log(THEJESHGN_LIB_FILES);
+}else{
+	THEJESHGN_LIB_FILES = 'https://lib.thejeshgn.com';
+}
+var pc_geo_json_path = THEJESHGN_LIB_FILES + "/lib_files/geojson/pc_14_simplified.json";
+var pc_2014_results_csv_path = THEJESHGN_LIB_FILES + "/lib_files/data/pc_2014_results.csv";
+
+var map = L.map('map',{scrollWheelZoom:false, fullscreenControl: true}).setView([23.40, 83.00], 5);
   //var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
   //var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
   //L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'openstreetmap.1b68f018'}).addTo(map);
@@ -47,8 +55,8 @@ function formatDateHour() {
 }
   
 var plotPC = function(pane){
-    d3.json('../geojson/pc_14_simplified.json' , function(parcon){
-      d3.csv('../data/pc_2014_results.csv' , function(info){
+    d3.json(pc_geo_json_path , function(parcon){
+      d3.csv(pc_2014_results_csv_path , function(info){
       var marker
       var getColor = function(d) {
                 stat_code = d['properties']['stat_code'];
