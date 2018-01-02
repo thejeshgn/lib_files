@@ -1,8 +1,11 @@
-if(THEJESHGN_LIB_FILES){
+if (typeof(THEJESHGN_LIB_FILES) !== 'undefined') { 
 	console.log(THEJESHGN_LIB_FILES);
 }else{
 	THEJESHGN_LIB_FILES = 'https://lib.thejeshgn.com';
 }
+ console.log("yes");
+
+
 var pc_geo_json_path = THEJESHGN_LIB_FILES + "/lib_files/geojson/pc_14_simplified.json";
 var pc_2014_results_csv_path = THEJESHGN_LIB_FILES + "/lib_files/data/pc_2014_results.csv";
 
