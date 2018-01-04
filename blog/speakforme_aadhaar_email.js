@@ -486,7 +486,7 @@ function drawGraphs(returned_data){
 
 //Make the call
  jQuery.ajax({
-  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222018%22&endkey=%222017%22&descending=true&limit=300&clear="+formatDateHour(),
+  url: "https://data.thejeshgn.com/bulletinbabu/_all_docs?include_docs=true&startkey=%222019%22&endkey=%222017%22&descending=true&limit=30&clear="+formatDateHour(),
   contentType: "application/json",
   dataType:'json'
 }).done(function( data ) {
