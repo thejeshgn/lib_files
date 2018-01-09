@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>#SpeakForMe Petition Live Status</title>
+	<link rel="stylesheet" href="../tufte-css/tufte.css"/>
+	<link rel="stylesheet" href="../leaflet/v1.2.0/leaflet.css" />
+<style>
+#map {
+    width: 99%;
+    height: 800px;
+}
+#map .info {
+    padding: 6px 8px;
+    font: 0.7rem Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+#map .info h6 {
+    font-size: 1.2rem;
+    margin: 0 0 5px;
+    color: #777;
+}
+
+#map .legend {
+    line-height: 18px;
+    color: #555;
+}
+
+#map .legend i {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+</style>
+</head>	
+<body>
+	<h1>#SpeakForMe Petition Live Status</h1>
+	<a href="https://www.speakforme.in">#SpeakForMe</a> is a campaign to petition Indian MPs, Banks, Mobile operators and other service providers to speak for you  against the Aadhaar linking coercion. You can go to <a href="https://www.speakforme.in">#SpeakForMe</a> to send your petition. This page shows the live stats. It's updated hourly.
+	<h2 id="display_email_sent"></h2>		
+	<div id="emails_sent_by_institution"> </div>
+
+	<h2>Emails Sent to Mobile Operators</h2>
+	<div id="emails_sent_to_mobile_operator"> </div>
+
+	<h2>Emails Sent to Banks</h2>
+	<div id="emails_sent_to_banks"> </div>
+	
+	<h2>Emails Sent to MPs</h2><br>
+	<div id="map" ></div>
+	
+<!--
+	<h2>Recent Email Traffic</h2>
+	<h3>All</h3>
+	<div id="emails_sent"> </div>
+	<h3>By Category</h3>
+	<div id="emails_sent_by_institution_date"> </div>
+-->
+
+
+	<section>
+			Created by <a href="https://thejeshgn.com">Thejesh GN<a> using data obtained by parsing tweets of <a href="https://twitter.com/bulletinbabu">bulletinbabu</a>. <span id="last_updated_at"></span>.
+	</section>
+</body>
+<script type='text/javascript' src="../leaflet/v1.2.0/leaflet.js"></script>
+<script type='text/javascript' src="../jquery/jquery-2.1.4.min.js"></script>	
+<script type='text/javascript' src='../frappe_charts/frappe-charts.min.iife.js'></script>
+<script type='text/javascript' src='../lodash/lodash-4.17.4.min.js'></script>
+<script type='text/javascript' src='../d3/d3-3.5.13.min.js'></script>
+<script type='text/javascript' src='../blog/speakforme_aadhaar_email.js'></script>
+</html>
