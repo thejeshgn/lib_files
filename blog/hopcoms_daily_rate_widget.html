@@ -1,0 +1,142 @@
+
+<html>
+<head>
+<meta charset="UTF-8">  
+<title> HOPCOMS Daily vegetable and Fruits Rate</title>
+<link rel="stylesheet" href="../datatable/media/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskannada.css"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+<script type="text/javascript">
+    if (typeof(THEJESHGN_LIB_FILES) !== 'undefined') { 
+        console.log(THEJESHGN_LIB_FILES);
+    }else{
+        THEJESHGN_LIB_FILES = 'https://lib.thejeshgn.com';
+    }
+    if (typeof(THEJESHGN_DATA_DB) !== 'undefined') { 
+        console.log(THEJESHGN_DATA_DB);
+    }else{
+      THEJESHGN_DATA_DB = 'https://data.thejeshgn.com';
+    }  
+</script>
+<style>
+  body{
+   font-family: 'Noto Sans Kannada', 'Noto Serif', serif;
+  }
+</style>
+</head>
+
+
+<body>
+<table id="rate_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>ವಸ್ತುವಿನ ಹೆಸರು</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>ವಸ್ತುವಿನ ಹೆಸರು</th>
+                <th>Rate</th>
+            </tr>
+        </tfoot>
+    </table>
+Rates by HOPCOMS, <span id="last_updated_at"></span>.
+</body>
+<script src="../datatable/media/js/jquery.js"> </script>
+<script src="../datatable/media/js/jquery.dataTables.min.js"> </script>
+<script>  
+var item_details;
+var rate_data;
+var display_rates = [];
+var publish_date = "";
+
+function clearCache() {
+    var d = new Date(),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+        hour = d.getHours();
+        min = d.getMinutes();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day, hour].join('-');
+}
+
+function display(){
+    console.log("STEP 4");
+    console.log("display");
+    var arrayLength = rate_data.length;
+      for(key in rate_data) {
+        if("_id" == key || "_rev" == key ){
+          continue
+        }
+        item = item_details[key];
+        //console.log( item_details[key] );
+        //console.log( rate_data[key] );
+        data_item = {};
+        data_item['key']=key;
+        data_item['rate']=rate_data[key];
+        data_item['name_en']=item["name_en"];
+        data_item['name_kn']=item["name_kn"];
+        display_rates.push(data_item);
+      }
+
+
+  $('#rate_table').dataTable({
+      "data": display_rates,
+       "order": [[ 1, "asc" ]],
+      "columns": [
+          { "data": "key" },
+          { "data": "name_en" },
+          { "data": "name_kn" },
+          { "data": "rate" }
+      ]
+  });
+
+  visible_date = publish_date.substr(6, 2) + "/"+publish_date.substr(4, 2)+"/"+publish_date.substr(0, 4);
+
+  jQuery("#last_updated_at").html("Published on : "+visible_date);
+
+}
+  
+
+function pullMetaData(){
+    console.log("STEP 2");
+    console.log("inside pullMetaData");
+    jQuery.ajax({
+      url: THEJESHGN_DATA_DB+"/hopcoms_meta/item_details?clear="+clearCache(),
+      contentType: "application/json",
+      dataType:'json'
+    }).done(function( data ) {
+      console.log("STEP 3");
+      item_details = data;
+      display();
+    });     
+
+}
+
+
+
+
+
+//Make the call
+jQuery.ajax({
+  url: THEJESHGN_DATA_DB+"/hopcoms_daily/_all_docs?include_docs=true&limit=1&descending=true&startkey=%223000%22&clear="+clearCache(),
+  contentType: "application/json",
+  dataType:'json'
+}).done(function( data ) {  
+  console.log("STEP 1");
+  rate_data = data["rows"][0]["doc"];
+  publish_date = data["rows"][0]["id"];
+  console.log(data);
+  pullMetaData();
+});     
+</script>
+
+</html>
