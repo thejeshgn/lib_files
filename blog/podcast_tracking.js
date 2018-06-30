@@ -1,3 +1,9 @@
+/*
+Needs the script
+https://lib.thejeshgn.com/lib_files/frappe_charts/frappe-charts.min.iife.js
+*/
+
+var oTable;
 
 function formatDateHour() {
     var d = new Date(),
@@ -17,14 +23,54 @@ function formatDateHour() {
     return [year, month, day, hour, min, second].join('-');
 }
 
-oTable =  jQuery('#example').dataTable( {
+function updateGraphs(){
+  var total_time_played_podcast_url =THEJESHGN_DATA_DB+"/listeningnow/_design/total_time_played_podcast/_view/total_time_played_podcast?group=true&reduce=true";
+  jQuery.ajax({
+    url: total_time_played_podcast_url,
+  }).done(function(data) {
+      labels = [];
+      values = [];
+      total_time_played = 0;
+      for(i=0; i < data['rows'].length; i++){
+          labels.push(data['rows'][i]['key']);
+          values.push(data['rows'][i]['value']);
+          total_time_played = total_time_played + data['rows'][i]['value'];
+      }
+        var data_mostlistened =  {
+        labels: labels,
+        datasets: [
+          {
+            title: "Most Heard podcasts",
+            values: values,
+          }
+        ]
+      };
+        
+        most_listened_podcast = new Chart({
+        parent: "#by_listening",
+        title: "Most Heard Podcasts",
+        data: data_mostlistened,
+        type: 'bar', 
+        height: 250
+      });
+
+
+  });
+
+
+}
+
+
+function updateTable(){
+
+  jQuery('#example').dataTable( {
             "bSort" : false,  //sorting disabled
             "searching": true,
              "pageLength": 25,
             "processing": true,
             "serverSide": true,
             "ajax": {
-                      "url": "https://data.thejeshgn.com/listeningnow/_design/latest/_view/latest?include_docs=true&descending=true&clear="+formatDateHour(),
+                      "url": THEJESHGN_DATA_DB+"/listeningnow/_design/latest/_view/latest?include_docs=true&descending=true&clear="+formatDateHour(),
                       "dataSrc": "rows",
                       "data": function ( d ) {
                               d.limit = d.length;
@@ -72,3 +118,15 @@ oTable =  jQuery('#example').dataTable( {
           oTable.fnFilter(this.value);   
       }
      });
+}
+
+
+
+function startEverything(){
+  updateTable();
+  updateGraphs();
+}
+
+
+/* Call it */
+startEverything();
