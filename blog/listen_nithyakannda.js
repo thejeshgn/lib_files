@@ -23,29 +23,29 @@ function formatDateHour() {
     return [year, month, day, hour, min, second].join('-');
 }
 
-function format ( d ) {
-    // `d` is the original data object for the row
+function format ( row_data ) {
+    // `row_data` is the original data object for the row
+    
+    kannada = "1."+ row_data['doc']['text']['kn']['1'];
+    english = "1."+ row_data['doc']['text']['en']['1'];
+    transliterated = "1."+ row_data['doc']['text']['Knda-Latn']['1'];
 
-    kannada = "1."+ row['doc']['text']['kn']['1'];
-    english = "1."+ row['doc']['text']['en']['1'];
-    transliterated = "1."+ row['doc']['text']['Knda-Latn']['1'];
-
-    if( "2" in row['doc']['text']['kn'] ) {
-      kannada = kannada + "<br>2."+ row['doc']['text']['kn']['2'];
-      english = english + "<br>2."+ row['doc']['text']['en']['2'];
-      transliterated = transliterated + "<br>2."+ row['doc']['text']['Knda-Latn']['2'];
-
-    }
-    if( "3" in row['doc']['text']['kn'] ) {
-      kannada = kannada + "<br>3."+ row['doc']['text']['kn']['3'];
-      english = english + "<br>3."+ row['doc']['text']['en']['3'];
-      transliterated = transliterated + "<br>3."+ row['doc']['text']['Knda-Latn']['3'];
+    if( "2" in row_data['doc']['text']['kn'] ) {
+      kannada = kannada + "<br>2."+ row_data['doc']['text']['kn']['2'];
+      english = english + "<br>2."+ row_data['doc']['text']['en']['2'];
+      transliterated = transliterated + "<br>2."+ row_data['doc']['text']['Knda-Latn']['2'];
 
     }
-    if( "4" in row['doc']['text']['kn'] ) {
-      kannada = kannada + "<br>4."+ row['doc']['text']['kn']['4'];
-      english = english + "<br>4."+ row['doc']['text']['kn']['4'];
-      transliterated = transliterated + "<br>4."+ row['doc']['text']['Knda-Latn']['4'];
+    if( "3" in row_data['doc']['text']['kn'] ) {
+      kannada = kannada + "<br>3."+ row_data['doc']['text']['kn']['3'];
+      english = english + "<br>3."+ row_data['doc']['text']['en']['3'];
+      transliterated = transliterated + "<br>3."+ row_data['doc']['text']['Knda-Latn']['3'];
+
+    }
+    if( "4" in row_data['doc']['text']['kn'] ) {
+      kannada = kannada + "<br>4."+ row_data['doc']['text']['kn']['4'];
+      english = english + "<br>4."+ row_data['doc']['text']['kn']['4'];
+      transliterated = transliterated + "<br>4."+ row_data['doc']['text']['Knda-Latn']['4'];
 
     }
 
@@ -167,7 +167,10 @@ function updateTable(){
     console.log("now");
         var tr = jQuery(this).closest('tr');
         var table  =  jQuery('#listen').DataTable();
-        var row =table.row( tr );
+        var row = table.row( tr );
+        console.log(row);
+        debugger;
+        console.log(row.child.isShown());
         if ( row.child.isShown() ) {
             // This row is already open - close it
             row.child.hide();
