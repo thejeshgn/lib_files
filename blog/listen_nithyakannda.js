@@ -155,8 +155,8 @@ function updateTable(){
                   {
                       "className":      'details-control',
                       "orderable":      false,
-                      "data":           null,
-                      "defaultContent": ''
+                      "data":           "Click this 🖱️",
+                      "defaultContent": "Click this 🖱️"
                   },                  
 
                 ]
@@ -169,7 +169,6 @@ function updateTable(){
         var table  =  jQuery('#listen').DataTable();
         var row = table.row( tr );
         console.log(row);
-        debugger;
         console.log(row.child.isShown());
         if ( row.child.isShown() ) {
             // This row is already open - close it
