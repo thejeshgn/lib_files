@@ -166,7 +166,8 @@ function updateTable(){
    jQuery('#listen tbody').on('click', 'td.details-control', function () {
     console.log("now");
         var tr = jQuery(this).closest('tr');
-        var row = oTable.row( tr );
+        var table  =  jQuery('#listen').DataTable();
+        var row =table.row( tr );
         if ( row.child.isShown() ) {
             // This row is already open - close it
             row.child.hide();
