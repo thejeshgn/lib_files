@@ -29,7 +29,58 @@ function updateGraphs(){
 		}
 	})
 
-}
+
+
+
+
+
+
+	const data2 = {
+	    labels: ["Jan-June 2014", "Jul-Dec 2014", "Jan-June 2015", "Jul-Dec 2015",
+	        "Jan-June 2016", "Jul-Dec 2016", "Jan-June 2017", "Jul-Dec 2017","Jan-Apr 2018","Jul-Oct 2018"
+	    ],
+	    datasets: [
+	        {
+	            name: "Registered",chartType: "bar",
+	            values: [1380,1653,2564,7291,17292,35748,46363,70316,86954,161256,]
+	        },
+	        {
+	            name: "Attended", chartType: "bar",
+	            values: [1182,1549,2113,6006,15310,26544,38405,63398,76125,144033]
+	        },
+	        {
+	            name: "Certified",chartType: "bar",
+	            values: [546,1526,1931,3165,10331,19595,31117,54092,66167,124270]
+	        }
+
+	    ]
+	}
+
+
+
+
+
+
+	const chart2 = new frappe.Chart("#subjects", {  
+	    title: "NPTEL Certification - Results",
+	    data: data2,
+	    type: 'axis-mixed',
+	    height: 400,
+	    barOptions: {
+	       stacked: 0,
+ 		   spaceRatio: 0.1 // default: 1
+		},
+
+
+
+	})
+
+
+
+
+
+
+}//updateGraphs
 
 function startEverything(){
   updateGraphs();
