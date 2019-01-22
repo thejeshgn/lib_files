@@ -42,7 +42,7 @@ function updateGraphs(){
 	    datasets: [
 	        {
 	            name: "Registered",chartType: "bar",
-	            values: [1380,1653,2564,7291,17292,35748,46363,70316,86954,161256,]
+	            values: [1380,1653,2564,7291,17292,35748,46363,70316,86954,161256]
 	        },
 	        {
 	            name: "Attended", chartType: "bar",
@@ -57,10 +57,6 @@ function updateGraphs(){
 	}
 
 
-
-
-
-
 	const chart2 = new frappe.Chart("#subjects", {  
 	    title: "NPTEL Certification - Results",
 	    data: data2,
@@ -69,12 +65,34 @@ function updateGraphs(){
 	    barOptions: {
 	       stacked: 0,
  		   spaceRatio: 0.1 // default: 1
-		},
-
-
-
+		}
 	})
 
+
+
+
+	const data3 = {
+	    labels: ["Jan-June 2014", "Jul-Dec 2014", "Jan-June 2015", "Jul-Dec 2015",
+	        "Jan-June 2016", "Jul-Dec 2016", "Jan-June 2017", "Jul-Dec 2017","Jan-Apr 2018","Jul-Oct 2018"
+	    ],
+	    datasets: [
+	        {
+	            name: "No of Courses",chartType: "line",
+	            values: [1,2,18,36,64,104,130,159,226,269,]
+	        }
+	    ]
+	}
+
+	const chart3 = new frappe.Chart("#courses_offered", {  
+	    title: "NPTEL Courses Offered",
+	    data: data3,
+	    type: 'line',
+	    height: 400,
+	    barOptions: {
+	       stacked: 0,
+ 		   spaceRatio: 0.1 // default: 1
+		}
+	})
 
 
 
