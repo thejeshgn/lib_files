@@ -6,21 +6,21 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 			////////////////////////// Data ////////////////////////////// 
 			////////////////////////////////////////////////////////////// 
 
-			//This is for 39 Year
+			//This is for 39th Year
 			var data = [
-					  [
-						{axis:"Health",value:.8},
-						{axis:"Wealth",value:.6},
-						{axis:"Location",value:.8},
-						{axis:"Family",value:.9},
-						{axis:"Friends",value:.7},
-						{axis:"Love",value:.9},
-						{axis:"Learning",value:.6},
-						{axis:"Work",value:.7},
-						{axis:"Leasure",value:.6},
-						{axis:"Self",value:.6},
-					]
-					];
+				[
+				  {axis:"Health",value:.7},
+				  {axis:"Wealth",value:.4},
+				  {axis:"Location",value:.8},
+				  {axis:"Family",value:.7},
+				  {axis:"Friends",value:.5},
+				  {axis:"Love",value:.8},
+				  {axis:"Learning",value:.6},
+				  {axis:"Work",value:.5},
+				  {axis:"Leasure",value:.4},
+				  {axis:"Self",value:.5},
+			  ]
+			  ];
 			////////////////////////////////////////////////////////////// 
 			//////////////////// Draw the Chart ////////////////////////// 
 			////////////////////////////////////////////////////////////// 
