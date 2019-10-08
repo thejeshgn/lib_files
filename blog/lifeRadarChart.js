@@ -17,7 +17,7 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 				  {axis:"Love",value:.8},
 				  {axis:"Learning",value:.6},
 				  {axis:"Work",value:.5},
-				  {axis:"Leasure",value:.4},
+				  {axis:"Leisure",value:.4},
 				  {axis:"Self",value:.5},
 			  ]
 			  ];
