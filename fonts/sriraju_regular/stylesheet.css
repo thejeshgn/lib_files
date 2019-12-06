@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'srirajuregularunicoderegular';
+    src: url('srirajur-webfont.woff2') format('woff2'),
+         url('srirajur-webfont.woff') format('woff'),
+         url('srirajur-webfont.svg#srirajuregularunicoderegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
