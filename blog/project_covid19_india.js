@@ -24,6 +24,24 @@ function updateGraphs(data){
 		var death = [];
 		var date_labels = [];
 		var rows = data["rows"];
+		
+		var last_entry_per_day = [];
+		previous_date_part = ""
+		for(var j=(rows.length -1); j >= 0 ; j--){
+			row = rows[j];
+			keys = row["key"];
+			report_datetime = keys[0];
+			
+			date_part = (report_datetime.split("T"))[0];
+			console.log(previous_date_part,date_part )
+
+			if(previous_date_part != date_part){
+				last_entry_per_day.push(report_datetime);					
+			}			 
+			previous_date_part = date_part;
+			
+		}
+
 		for(var i=0; i < rows.length; i++){
 			row = rows[i];
 
@@ -32,31 +50,32 @@ function updateGraphs(data){
 			label_type = keys[1];
 			data_value = row["value"];
 
-			if(label_type == "cured"){
-				if(date_labels.includes(report_date)){
-					//pass
-				}else{
-					date_labels.push(report_date);
-				}
-				cured.push(data_value);		
-			} 
-			if(label_type == "death"){
-				if(date_labels.includes(report_date)){
-					//pass
-				}else{
-					date_labels.push(report_date);
-				}
-				death.push(data_value);
-			} 
-			if(label_type == "total_confirmed_cases"){
-				if(date_labels.includes(report_date)){
-					//pass
-				}else{
-					date_labels.push(report_date);
-				}
-				confirmed.push(data_value);
-			} 
-
+			if(last_entry_per_day.includes(report_date)){
+				if(label_type == "cured"){
+					if(date_labels.includes(report_date)){
+						//pass
+					}else{
+						date_labels.push(report_date);
+					}
+					cured.push(data_value);		
+				} 
+				if(label_type == "death"){
+					if(date_labels.includes(report_date)){
+						//pass
+					}else{
+						date_labels.push(report_date);
+					}
+					death.push(data_value);
+				} 
+				if(label_type == "total_confirmed_cases"){
+					if(date_labels.includes(report_date)){
+						//pass
+					}else{
+						date_labels.push(report_date);
+					}
+					confirmed.push(data_value);
+				} 
+			}
 		}
 		console.log(confirmed);
 		console.log(cured);
