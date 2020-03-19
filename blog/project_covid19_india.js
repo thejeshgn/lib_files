@@ -1,4 +1,4 @@
-//Needs Frappe chart
+//Needs Frappe chart 1.1.0
 
 function formatDateHour() {
     var d = new Date(),
@@ -107,11 +107,18 @@ function updateGraphs(data){
 		    title: "COVID19 Cases In India",
 		    data: data2,
 		    type: 'axis-mixed',
-		    height: 400,
+		    height: 600,
 		    barOptions: {
 		       stacked: 0,
 				   spaceRatio: 0.1 // default: 1
-			}
+			},
+			lineOptions: {
+  			  dotSize: 6, // default: 4
+  			  heatline: 1
+			},
+			axisOptions: {
+  			  xIsSeries: true // default: false
+			}		
 		})
 
 }
