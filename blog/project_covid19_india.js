@@ -1,5 +1,6 @@
 //Needs Frappe chart 1.1.0
 
+
 function formatDateHour() {
     var d = new Date(),
         month = '' + (d.getMonth() + 1),
@@ -20,6 +21,7 @@ function formatDateHour() {
 
 function updateGraphs(data){
 		var confirmed = [];
+		var active_cases = [];
 		var cured = [];
 		var death = [];
 		var date_labels = [];
@@ -75,12 +77,22 @@ function updateGraphs(data){
 					}
 					confirmed.push(data_value);
 				} 
+				if(label_type == "active_cases"){
+					if(date_labels.includes(report_date)){
+						//pass
+					}else{
+						date_labels.push(report_date);
+					}
+					active_cases.push(data_value);
+				} 
 			}
 		}
 		console.log(confirmed);
 		console.log(cured);
 		console.log(death);
 		console.log(date_labels);
+		console.log(active_cases);
+		
 
 		const data2 = {
 		    labels: date_labels,
@@ -88,6 +100,10 @@ function updateGraphs(data){
 		        {
 		            name: "Confirmed",chartType: "line",
 		            values: confirmed
+		        },
+		        {
+		            name: "Active",chartType: "line",
+		            values: active_cases
 		        },
 		        {
 		            name: "Cured", chartType: "line",
@@ -118,8 +134,15 @@ function updateGraphs(data){
 			},
 			axisOptions: {
   			  xIsSeries: true // default: false
-			}		
-		})
+			},
+			colors: ['#7cd6fd','#5e64ff','#743ee2','#ff5858'],		
+		});
+		//update the divs
+		jQuery( "#confirmed" ).text(confirmed[confirmed.length-1])
+		jQuery( "#active_cases" ).text(active_cases[active_cases.length-1])
+		jQuery( "#cured" ).text(cured[cured.length-1])
+		jQuery( "#death" ).text(death[death.length-1])
+		jQuery( "#last_updated_on" ).text("Last updated at: " +date_labels[date_labels.length-1])
 
 }
 
