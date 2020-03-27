@@ -135,7 +135,7 @@ function updateGraphs(data){
 			axisOptions: {
   			  xIsSeries: true // default: false
 			},
-			colors: ['#7cd6fd','#5e64ff','#743ee2','#ff5858'],		
+			colors: ['#7cd6fd','#5e64ff','#82b965','#ff5858'],		
 		});
 		//update the divs
 		jQuery( "#confirmed" ).text(confirmed[confirmed.length-1])
