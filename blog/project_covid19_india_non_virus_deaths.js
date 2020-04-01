@@ -15,13 +15,47 @@ function formatDateHour() {
     //return [year, month, day, hour,min15].join('-');
     return [year, month, day, hour].join('-');
 }
-data_url = "https://data.thejeshgn.com/covid19/_design/india/_view/non_virus_deaths?descending=false&nounce=3"+formatDateHour();
+cases_data_url = "https://data.thejeshgn.com/covid19/_design/india/_view/non_virus_deaths?descending=false&nounce="+formatDateHour();
+counts_data_url = "https://data.thejeshgn.com/covid19/_design/aggregation/_view/non_virus_deaths?reduce=true&group=true&nounce="+formatDateHour();
 
+
+function updateGraphs(){
+  jQuery.ajax({
+    url: counts_data_url,
+  }).done(function(data) {
+      labels = [];
+      values = [];
+      total_time_played = 0;
+      for(i=0; i < data['rows'].length; i++){
+          labels.push(data['rows'][i]['key']);
+          values.push(data['rows'][i]['value']);
+      }
+        var non_virus_death_count =  {
+        labels: labels,
+        datasets: [
+          {
+            title: "Deaths",
+            values: values,
+          }
+        ]
+      };
+        
+        console.log(non_virus_death_count);
+
+        most_listened_podcast = new frappe.Chart("#deaths_by_timeline",
+        {
+          data: non_virus_death_count,
+          title: "Non Virus Death Count",
+          type: 'line', 
+          height: 250
+        });
+  });
+}
 
 function updateTable(){
   oTable =  jQuery('#non_virus_death_table').dataTable( {
               "ajax": {
-                        "url":data_url,
+                        "url":cases_data_url,
                         "dataSrc": "rows",
                 }, //END AJAX
                 "columns":[    //columns to display
