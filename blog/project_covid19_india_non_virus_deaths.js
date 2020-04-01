@@ -107,6 +107,7 @@ function updateTable(){
  
  
 function startEverything(){
+  updateGraphs();
   updateTable();
 }
 
