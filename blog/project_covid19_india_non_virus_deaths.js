@@ -49,7 +49,7 @@ function updateGraphs(){
           data: non_virus_death_count,
           title: "Non Virus Death Count",
           type: 'line', 
-          height: 250
+          height: 450
         });
   });
 }
