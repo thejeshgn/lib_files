@@ -26,9 +26,11 @@ function updateGraphs(){
       labels = [];
       values = [];
       total_time_played = 0;
+      previous_value = 0
       for(i=0; i < data['rows'].length; i++){
           labels.push(data['rows'][i]['key']);
-          values.push(data['rows'][i]['value']);
+          previous_value = previous_value + data['rows'][i]['value'];
+          values.push(previous_value);
       }
         var non_virus_death_count =  {
         labels: labels,
