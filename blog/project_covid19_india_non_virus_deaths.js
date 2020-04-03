@@ -54,6 +54,7 @@ function updateGraphs(){
 
 function updateTable(){
   oTable =  jQuery('#non_virus_death_table').dataTable( {
+              "pageLength": 25,
               "ajax": {
                         "url":cases_data_url,
                         "dataSrc": "rows",
@@ -91,6 +92,10 @@ function updateTable(){
                   {"data":"value.source", 
                            "render": function(data, type, row, meta){
                                 if(type === 'display'){
+                                    data = data.replace("www.","");
+                                    data = data.replace(".com","");
+                                    data = data.replace(".in","");
+                                    data = data.replace(".net","");
                                     data = '<a  target="_blank" href="' + row['value']['source_link'] + '">' + data + '</a>';
                                 }
                                 return data;
