@@ -45,12 +45,21 @@ function updateGraphs(){
         console.log(non_virus_death_count);
 
         most_listened_podcast = new frappe.Chart("#deaths_by_timeline",
-        {
-          data: non_virus_death_count,
-          title: "Non Virus Death Count",
-          type: 'line', 
-          height: 450
-        });
+            {
+              data: non_virus_death_count,
+              title: "Non Virus Death Count",
+              type: 'line', 
+              lineOptions: {
+                  dotSize: 6, // default: 4
+                  heatline: 1
+              },
+              axisOptions: {
+                  xIsSeries: true // default: false
+              },          
+              height: 450,
+              colors: ['#ff5858'],    
+            }
+        );
   });
 }
 
