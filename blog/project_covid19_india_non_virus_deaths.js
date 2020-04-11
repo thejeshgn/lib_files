@@ -125,7 +125,7 @@ function updateGraphs(death, date_labels, death_data){
         most_listened_podcast = new frappe.Chart("#deaths_by_timeline",
             {
               data: data_for_chart,
-              title: "Non Virus Death v/s COVID-19 Death Count",
+              title: "Non Virus Deaths v/s COVID-19 Deaths",
                 type: 'axis-mixed',
                 height: 600,
                 barOptions: {
