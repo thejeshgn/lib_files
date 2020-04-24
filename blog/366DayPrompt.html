@@ -5,6 +5,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<script type="text/javascript">
+		var nomie_url = "https://v5.nomie.app/history?note=";
+
 		var prompt = {};
 		prompt["01-01"]="What is your number one goal this year?";
 		prompt["01-02"]="What are you most grateful for?";
@@ -386,69 +388,71 @@
 		        	
 		    	return month+"-"+day;
 		}
+
+		function updateUrl(){
+			console.log("u");
+			let journal_text = document.getElementById("editor").value			
+			nomie_url_text = nomie_url + encodeURIComponent(journal_text)
+			document.getElementById("go").href=nomie_url_text;
+			document.getElementById("go").innerHTML="Ready";
+		}
+
 		</script>
 <style type="text/css">
-#box {
-  margin: 20px auto;
-  padding: 5px;
-  width: 98%;
-  background-color: #bfc5ff;
-}
-#boxhead {
-  border-bottom: 1px solid white;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  padding-bottom: 3px;
-  font-size: 2.2em;
-}
-body {
-  font-family: georgia;
-  color: #000034;
-  border: 1px solid #bfc5ff;
-  margin: 20px auto;
-  padding: 5px;
-  width: 700px;
-}
-#boxbody {
-  border: 1px solid #dfdaf8;
-  margin: 20px auto;
-  padding: 10px 20px;
-  width: 450px;
-  background-color: #dfdaf8;
-  font-size: 1.2em;
-}
-#boxbody:hover {
-  border: 1px solid #f6f4ff;
-}
-#updates{  border: 1px solid #dfdaf8;
-  margin: 20px auto;
-  padding: 10px 20px;
-  width: 450px;
-  background-color: #dfdaf8;
-  font-size: 1em;}
+		body{
+			background-color: #bfc5ff;
+		}
 
+ 		.container {
+            max-width: 820px;
+            margin: 0px auto;
+            margin-top: 50px;            
+        }
+
+        .comment {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .commenter {
+            float: left;
+        }
+
+        .comment-text-area {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .textinput {
+            float: left;
+            width: 100%;
+            min-height: 125px;
+            outline: none;
+            resize: none;
+            border: 1px solid grey;
+        }
 </style>
 
-		<title></title>
+		<title>Daily Journal Prompt</title>
 	</head>
 	<body>
-		<div id="box">
-			<div id="boxbody">
-				<div id="prompt"></div>
+		<h1>Daily Journal Prompt</h1>
+		<div class="container">
+			<div id="comment">
+				<textarea id="editor" class="textinput" oninput="updateUrl()"></textarea>
+				<br/>
+				<strong>When you are ready. Click the link below to go to Nomie.</strong>
+				<br/><br/><br/>
+				<div ><a id="go" href="">Let's go to Nomie</a></div>
 			</div>
 		</div>
 		<script type="text/javascript">
 			let dt = formatDate();
 			console.log(dt);
-			nomie_url = "https://v5.nomie.app/history?note=";
-			journal_text = "#journal "+" 👍: " + prompt[dt] +" 🤔:"
-			nomie_url = nomie_url + encodeURIComponent(journal_text)
-			var a = document.createElement('a');  
-			var link = document.createTextNode(journal_text); 
-			a.appendChild(link);  
-			a.href = nomie_url;  
-			document.getElementById("prompt").appendChild(a);
+			journal_text = "#journal \n"+"👍: " + prompt[dt] +"\n \n🤔:"
+			document.getElementById("editor").value = journal_text;
 		</script>
 	</body>
 </html>
