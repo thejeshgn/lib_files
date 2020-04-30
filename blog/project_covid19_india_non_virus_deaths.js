@@ -152,6 +152,7 @@ function updateTable(){
                         "url":cases_data_url,
                         "dataSrc": "rows",
                 }, //END AJAX
+                "order": [[ 0, "desc" ]],
                 "columns":[    //columns to display
                     {
                       "data":"value.incident_date",
