@@ -176,7 +176,11 @@ function updateTable(){
                           "render": function(data, type, row, meta){
                                 var return_data = ""
                                 if(type === "display" || type === "filter"){
-                                   return_data = row['value']['location'] +", "+ row['value']['district'];                                  
+                                  if(row['value']['location'] != ""){                                    
+                                    return_data = row['value']['location'] +", "+ row['value']['district'];                                  
+                                  }else{
+                                    return_data = row['value']['district'];                                  
+                                  }
                                 }
                                 return return_data;
                              }
