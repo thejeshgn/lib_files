@@ -376,7 +376,7 @@
 		function formatDate() {
 		var d = new Date();
 		month = '' + (d.getMonth() + 1);
-		day = d.getDate();
+		day = '' + d.getDate();
 		if (day.length < 2){
 			day = '0' + day;
 		}
