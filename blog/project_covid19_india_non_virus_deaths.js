@@ -102,7 +102,7 @@ function updateGraphs(death, date_labels, death_data){
       }
 
       
-      var data_for_chart =  {
+      var data_for_compare_chart =  {
         labels: date_labels,
         datasets: [
           {
@@ -117,14 +117,44 @@ function updateGraphs(death, date_labels, death_data){
           }          
         ]
       };
+
+      var data_for_chart =  {
+        labels: date_labels,
+        datasets: [
+          {
+            title: "Non Virus Deaths",
+            name:"Non Virus Deaths",
+            values: values,
+          }          
+        ]
+      };      
         
       //console.log("================================================================");
       //console.log(date_labels, values, death_data)
-
-
-        most_listened_podcast = new frappe.Chart("#deaths_by_timeline",
+        deaths_by_timeline = new frappe.Chart("#deaths_by_timeline",
             {
               data: data_for_chart,
+              title: "COVID-19 Deaths",
+                type: 'axis-mixed',
+                height: 600,
+                barOptions: {
+                   stacked: 0,
+                   spaceRatio: 0.1 // default: 1
+              },
+              lineOptions: {
+                  dotSize: 6, // default: 4
+                  heatline: 1
+              },
+              axisOptions: {
+                  xIsSeries: true // default: false
+              },
+              colors: ['#ff5858', '#7cd6fd'],    
+            }
+        );
+
+        compare_by_timeline = new frappe.Chart("#compare_by_timeline",
+            {
+              data: data_for_compare_chart,
               title: "Non Virus Deaths v/s COVID-19 Deaths",
                 type: 'axis-mixed',
                 height: 600,
@@ -142,6 +172,10 @@ function updateGraphs(death, date_labels, death_data){
               colors: ['#ff5858', '#7cd6fd'],    
             }
         );
+
+
+
+
   });
 }
 
