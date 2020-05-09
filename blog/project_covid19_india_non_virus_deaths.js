@@ -134,7 +134,7 @@ function updateGraphs(death, date_labels, death_data){
         deaths_by_timeline = new frappe.Chart("#deaths_by_timeline",
             {
               data: data_for_chart,
-              title: "COVID-19 Deaths",
+              title: "Non Virus Deaths",
                 type: 'axis-mixed',
                 height: 600,
                 barOptions: {
