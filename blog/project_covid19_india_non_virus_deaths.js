@@ -179,6 +179,18 @@ function updateGraphs(death, date_labels, death_data){
   });
 }
 
+
+categories = {};
+categories["DarkGreen"] = "1";
+categories["DarkOliveGreen"] = "2";
+categories["DarkSeaGreen"] = "3";
+categories["LawnGreen"] = "4";
+categories["SandyBrown"] = "5";
+categories["Cyan"] = "6";
+categories["Magenta"] = "7";
+categories["LightGray"] = "8";
+categories["Yellow"] = "9";
+
 function updateTable(){
   oTable =  jQuery('#non_virus_death_table').dataTable( {
               "pageLength": 25,
@@ -233,7 +245,23 @@ function updateTable(){
                                 return data;
                              }
 
-                  },
+                  },{
+                    "data":"&nbsp;",
+                          "render":  
+                              function(data, type, row, meta){
+                                var return_data = ""
+                                if(type === "display" || type === "filter"){
+                                  if(row['value']['category'] != ""){                                    
+                                    return_data = '<span style="background-color:'+row['value']['category']+';">&nbsp;&nbsp;'+categories[row['value']['category']]+'&nbsp;&nbsp;</span>';                                  
+                                  }else{
+                                    return_data = "";                                  
+                                  }
+                                }else if(type == 'sort'){
+                                  return_data = categories[row['value']['category']];
+                                }
+                                return return_data;
+                             }
+                  }
                   ],
                   "columnDefs": [ {
                   targets: [ 0 ]
