@@ -245,7 +245,10 @@ function updateTable(){
                                 return data;
                              }
 
-                  },{
+                  },
+                  {"data":"value.name_age"},
+                  {"data":"value.occupation"},
+                  {
                     "data":"&nbsp;",
                           "render":  
                               function(data, type, row, meta){
