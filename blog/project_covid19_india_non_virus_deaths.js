@@ -19,8 +19,30 @@ function formatDateHour() {
 var virus_total_data_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/all_totals?reduce=true&group=true&clear="+formatDateHour();
 var cases_data_url = THEJESHGN_DATA_DB+"/covid19/_design/india/_view/non_virus_deaths?descending=false&nounce="+formatDateHour();
 var counts_data_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/non_virus_deaths?reduce=true&group=true&nounce="+formatDateHour();
+var virus_total_data_category_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/non_virus_deaths_category?reduce=true&group=true&nounce="+formatDateHour();
 
+var categories = {};
+categories["DarkGreen"] = "1";
+categories["DarkOliveGreen"] = "2";
+categories["DarkSeaGreen"] = "3";
+categories["LawnGreen"] = "4";
+categories["SandyBrown"] = "5";
+categories["Cyan"] = "6";
+categories["Magenta"] = "7";
+categories["LightGray"] = "8";
+categories["Yellow"] = "9";
 
+var categories_label = {};
+categories_label["DarkGreen"] = "Exhaustion (walking, standing in lines)";
+categories_label["DarkOliveGreen"] = "Starvation and financial distress";
+categories_label["DarkSeaGreen"] = "Police brutality or state violence";
+categories_label["LawnGreen"] = "Lack of medical care or attention";
+categories_label["SandyBrown"] = "Death by crimes associated with lockdown (not communal)";
+categories_label["Cyan"] = "Accidents due to walking or during migration";
+categories_label["Magenta"] = "Alcohol withdrawal-related deaths and suicides";
+categories_label["LightGray"] = "Suicides due to fear of infection, loneliness, & lack of freedom of movement, inability to go home";
+categories_label["Yellow"] = "Unclassified (unclear, unable to categorize, need more details)";
+var categories_order = ["DarkGreen", "DarkOliveGreen","DarkSeaGreen","LawnGreen","SandyBrown","Cyan","Magenta","LightGray","Yellow"];
 
 
 function addGraphs(){
@@ -67,7 +89,6 @@ function addGraphs(){
         updateGraphs(death, date_labels, death_data);        
   });
 }
-
 
 function updateGraphs(death, date_labels, death_data){
   //console.log("inside updateGraphs");
@@ -180,16 +201,60 @@ function updateGraphs(death, date_labels, death_data){
 }
 
 
-categories = {};
-categories["DarkGreen"] = "1";
-categories["DarkOliveGreen"] = "2";
-categories["DarkSeaGreen"] = "3";
-categories["LawnGreen"] = "4";
-categories["SandyBrown"] = "5";
-categories["Cyan"] = "6";
-categories["Magenta"] = "7";
-categories["LightGray"] = "8";
-categories["Yellow"] = "9";
+function updateCategoryGraph(){
+  let data_dict = {}
+  jQuery.ajax({
+    url: virus_total_data_category_url
+  }).done(function(data) {
+      
+      labels = [];
+      values = [];
+      for(i=0; i < data['rows'].length; i++){          
+          data_dict[data['rows'][i]['key']]= data['rows'][i]['value'];
+      }
+
+      for(i=0; i < categories_order.length; i++){          
+          labels.push(categories_label[categories_order[i]]);
+          values.push(data_dict[categories_order[i]]);                  
+      }
+
+      
+
+
+      var data_for_chart =  {
+        labels: labels,
+        datasets: [
+          {
+            title: "Non Virus Deaths by Categories",
+            name:"Non Virus Deaths by Categories",
+            values: values,
+          }          
+        ]
+      };      
+        
+      //console.log("================================================================");
+      //console.log(date_labels, values, death_data)
+        non_virus_deaths_by_category = new frappe.Chart("#non_virus_deaths_by_category",
+            {
+              data: data_for_chart,
+              title: "Non Virus Deaths by Category",
+                type: 'bar',
+                height: 600,
+                barOptions: {
+                   spaceRatio: 0.1
+              },
+              colors: ["red"],    
+            }
+        );
+
+
+
+
+  });
+}
+
+
+
 
 function updateTable(){
   oTable =  jQuery('#non_virus_death_table').dataTable( {
@@ -276,6 +341,7 @@ function updateTable(){
  
 function startEverything(){
   addGraphs();
+  updateCategoryGraph();
   updateTable();
 }
 
