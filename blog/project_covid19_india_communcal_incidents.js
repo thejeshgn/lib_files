@@ -42,6 +42,7 @@ categories_label["Cyan"] = "Police/State Violence and Hate Speech (Unlawful arre
 function updateTable(){
   oTable =  jQuery('#communal_incidents_table').dataTable( {
               "pageLength": 25,
+              "responsive": true,
               "ajax": {
                         "url":communal_incidents_data_url,
                         "dataSrc": "rows",
