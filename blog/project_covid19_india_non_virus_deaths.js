@@ -259,6 +259,7 @@ function updateCategoryGraph(){
 function updateTable(){
   oTable =  jQuery('#non_virus_death_table').dataTable( {
               "pageLength": 25,
+              "responsive": true,
               "ajax": {
                         "url":cases_data_url,
                         "dataSrc": "rows",
