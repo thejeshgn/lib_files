@@ -31,7 +31,8 @@ categories["Cyan"] = "6";
 categories["Magenta"] = "7";
 categories["LightGray"] = "8";
 categories["Blue"] = "9";
-categories["Yellow"] = "10";
+categories["MediumPurple"] = "10";
+categories["Yellow"] = "11";
 
 var categories_label = {};
 categories_label["DarkGreen"] = "Exhaustion (walking, standing in lines)";
@@ -43,8 +44,9 @@ categories_label["Cyan"] = "Accidents due to walking or during migration";
 categories_label["Magenta"] = "Alcohol withdrawal-related deaths and suicides";
 categories_label["LightGray"] = "Suicides due to fear of infection, loneliness, & lack of freedom of movement, inability to go home";
 categories_label["Blue"] = "Deaths in Shramik Trains";
+categories_label["MediumPurple"] = "Quarantine centre deaths";
 categories_label["Yellow"] = "Unclassified (unclear, unable to categorize, need more details)";
-var categories_order = ["DarkGreen", "DarkOliveGreen","DarkSeaGreen","LawnGreen","SandyBrown","Cyan","Magenta","LightGray","Blue","Yellow"];
+var categories_order = ["DarkGreen", "DarkOliveGreen","DarkSeaGreen","LawnGreen","SandyBrown","Cyan","Magenta","LightGray","Blue","MediumPurple","Yellow"];
 
 
 function addGraphs(){
