@@ -1,3 +1,6 @@
+let start_date = new Date("2020-03-14");
+let last_updated_on = new Date("2020-07-04");
+
 function formatDateHour() {
     var d = new Date(),
         month = '' + (d.getMonth() + 1),
@@ -16,7 +19,7 @@ function formatDateHour() {
     return [year, month, day, hour].join('-');
 }
 
-var virus_total_data_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/all_totals?reduce=true&group=true&clear="+formatDateHour();
+//var virus_total_data_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/all_totals?reduce=true&group=true&clear="+formatDateHour();
 var cases_data_url = THEJESHGN_DATA_DB+"/covid19/_design/india/_view/non_virus_deaths?descending=false&nounce="+formatDateHour();
 var counts_data_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/non_virus_deaths?reduce=true&group=true&nounce="+formatDateHour();
 var virus_total_data_category_url = THEJESHGN_DATA_DB+"/covid19/_design/aggregation/_view/non_virus_deaths_category?reduce=true&group=true&nounce="+formatDateHour();
@@ -49,55 +52,66 @@ categories_label["Yellow"] = "Unclassified (unclear, unable to categorize, need 
 var categories_order = ["DarkGreen", "DarkOliveGreen","DarkSeaGreen","LawnGreen","SandyBrown","Cyan","Magenta","LightGray","Blue","MediumPurple","Yellow"];
 
 
-function addGraphs(){
-  jQuery.ajax({
-    url: virus_total_data_url,
-  }).done(function(data) {
-        var death = {};
-        var date_labels = [];
-        var death_data = [];
-        var rows = data["rows"];
+// function addGraphs(){
+//   jQuery.ajax({
+//     url: virus_total_data_url,
+//   }).done(function(data) {
+//         var death = {};
+//         var date_labels = [];
+//         var death_data = [];
+//         var rows = data["rows"];
         
-        var last_entry_per_day = [];
-        previous_date_part = ""
-        for(var j=(rows.length -1); j >= 0 ; j--){
-          row = rows[j];
-          keys = row["key"];
-          report_datetime = keys[0];
+//         var last_entry_per_day = [];
+//         previous_date_part = ""
+//         for(var j=(rows.length -1); j >= 0 ; j--){
+//           row = rows[j];
+//           keys = row["key"];
+//           report_datetime = keys[0];
           
-          date_part = (report_datetime.split("T"))[0];
-          //console.log(previous_date_part,date_part )
+//           date_part = (report_datetime.split("T"))[0];
+//           //console.log(previous_date_part,date_part )
 
-          if(previous_date_part != date_part){
-            last_entry_per_day.push(report_datetime);         
-          }      
-          previous_date_part = date_part;
+//           if(previous_date_part != date_part){
+//             last_entry_per_day.push(report_datetime);         
+//           }      
+//           previous_date_part = date_part;
           
-        }
-        for(var i=0; i < rows.length; i++){
-          row = rows[i];
+//         }
+//         for(var i=0; i < rows.length; i++){
+//           row = rows[i];
 
-          keys = row["key"];
-          report_date = keys[0];
-          label_type = keys[1];
-          data_value = row["value"];
-          if(last_entry_per_day.includes(report_date)){
-            if(label_type == "death"){
-              date_part = (report_date.split("T"))[0];
-              death[date_part]=data_value;
-              date_labels.push(date_part);
-              death_data.push(data_value);
-            } 
-          }
-        }
-        updateGraphs(death, date_labels, death_data);        
-  });
-}
+//           keys = row["key"];
+//           report_date = keys[0];
+//           label_type = keys[1];
+//           data_value = row["value"];
+//           if(last_entry_per_day.includes(report_date)){
+//             if(label_type == "death"){
+//               date_part = (report_date.split("T"))[0];
+//               death[date_part]=data_value;
+//               date_labels.push(date_part);
+//               death_data.push(data_value);
+//             } 
+//           }
+//         }
+//         updateGraphs(death, date_labels, death_data);        
+//   });
+// }
 
 function updateGraphs(death, date_labels, death_data){
   //console.log("inside updateGraphs");
   //console.log(death, date_labels, death_data)
   //console.log("-----------------------------------------------------------------------");
+  if (Array.isArray(date_labels) && date_labels.length) {
+    // array exists and is not empty, so we dont have to do anything    
+  }else{
+    date_labels = [];
+    for(var dt = start_date; dt <= last_updated_on; dt.setDate(dt.getDate() + 1) ){
+        iso_date = dt.toISOString();
+        date_part = iso_date.split("T")[0];        
+        date_labels.push(date_part);
+    }
+  }
+
   jQuery.ajax({
     url: counts_data_url,
   }).done(function(data) {
@@ -127,21 +141,22 @@ function updateGraphs(death, date_labels, death_data){
       }
 
       
-      var data_for_compare_chart =  {
-        labels: date_labels,
-        datasets: [
-          {
-            title: "Non Virus",
-            name:"Non Virus",
-            values: values,
-          },
-          {
-            title: "COVID-19",
-            name: "COVID-19",
-            values: death_data,
-          }          
-        ]
-      };
+      // var data_for_compare_chart =  {
+      //   labels: date_labels,
+      //   datasets: [
+      //     {
+      //       title: "Non Virus",
+      //       name:"Non Virus",
+      //       values: values,
+      //     }
+
+      //     ,{
+      //       title: "COVID-19",
+      //       name: "COVID-19",
+      //       values: death_data,
+      //     }          
+      //   ]
+      // };
 
       var data_for_chart =  {
         labels: date_labels,
@@ -177,26 +192,26 @@ function updateGraphs(death, date_labels, death_data){
             }
         );
 
-        compare_by_timeline = new frappe.Chart("#compare_by_timeline",
-            {
-              data: data_for_compare_chart,
-              title: "Non Virus Deaths v/s COVID-19 Deaths",
-                type: 'axis-mixed',
-                height: 600,
-                barOptions: {
-                   stacked: 0,
-                   spaceRatio: 0.1 // default: 1
-              },
-              lineOptions: {
-                  dotSize: 6, // default: 4
-                  heatline: 1
-              },
-              axisOptions: {
-                  xIsSeries: true // default: false
-              },
-              colors: ['#ff5858', '#7cd6fd'],    
-            }
-        );
+        // compare_by_timeline = new frappe.Chart("#compare_by_timeline",
+        //     {
+        //       data: data_for_compare_chart,
+        //       title: "Non Virus Deaths v/s COVID-19 Deaths",
+        //         type: 'axis-mixed',
+        //         height: 600,
+        //         barOptions: {
+        //            stacked: 0,
+        //            spaceRatio: 0.1 // default: 1
+        //       },
+        //       lineOptions: {
+        //           dotSize: 6, // default: 4
+        //           heatline: 1
+        //       },
+        //       axisOptions: {
+        //           xIsSeries: true // default: false
+        //       },
+        //       colors: ['#ff5858', '#7cd6fd'],    
+        //     }
+        // );
 
 
 
@@ -345,9 +360,10 @@ function updateTable(){
  
  
 function startEverything(){
-  addGraphs();
+  //addGraphs();
+  updateGraphs(null, null, null);
   updateCategoryGraph();
-  updateTable();
+  //updateTable();
 }
 
 
