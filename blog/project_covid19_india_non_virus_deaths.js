@@ -363,7 +363,7 @@ function startEverything(){
   //addGraphs();
   updateGraphs(null, null, null);
   updateCategoryGraph();
-  //updateTable();
+  updateTable();
 }
 
 
