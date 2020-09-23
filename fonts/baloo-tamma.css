@@ -1,0 +1,13 @@
+/* baloo-tamma-2-regular - latin-ext_latin_kannada */
+@font-face {
+  font-family: 'Baloo Tamma 2';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.eot'); /* IE9 Compat Modes */
+  src: local('Baloo Tamma 2 Regular'), local('BalooTamma2-Regular'),
+       url('./baloo-tamma-2-v1-latin-ext_latin_kannada/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./baloo-tamma-2-v1-latin-ext_latin_kannada/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./baloo-tamma-2-v1-latin-ext_latin_kannada/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.woff') format('woff'), /* Modern Browsers */
+       url('./baloo-tamma-2-v1-latin-ext_latin_kannada/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./baloo-tamma-2-v1-latin-ext_latin_kannada/baloo-tamma-2-v1-latin-ext_latin_kannada-regular.svg#BalooTamma2') format('svg'); /* Legacy iOS */
+}
