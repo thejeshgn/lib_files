@@ -10,14 +10,14 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 			var data = [
 				[
 				  {axis:"Health",value:.8},
-				  {axis:"Wealth",value:.7},
-				  {axis:"Location",value:.5},
-				  {axis:"Family",value:.7},
+				  {axis:"Wealth",value:.6},
+				  {axis:"Location",value:.4},
+				  {axis:"Family",value:.8},
 				  {axis:"Friends",value:.5},
-				  {axis:"Love",value:.8},
+				  {axis:"Love",value:.7},
 				  {axis:"Learning",value:.6},
 				  {axis:"Work",value:.6},
-				  {axis:"Leisure",value:.4},
+				  {axis:"Leisure",value:.3},
 				  {axis:"Self",value:.4},
 			  ]
 			  ];
