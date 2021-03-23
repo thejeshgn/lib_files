@@ -1,5 +1,5 @@
 let start_date = new Date("2020-03-14");
-let last_updated_on = new Date("2020-07-04");
+let last_updated_on = new Date("2020-07-30");
 
 function formatDateHour() {
     var d = new Date(),
