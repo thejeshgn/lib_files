@@ -15,8 +15,8 @@
         <div id="map"></div>
         <script type="text/javascript">
             const map = L.map('map')
-            //const p = new protomaps.PMTiles("https://s3.amazonaws.com/media.thejeshgn.com/tiles/richards_park_2021.pmtiles")
-            const p = new protomaps.PMTiles("richards_park_2021.pmtiles")
+            const p = new protomaps.PMTiles("https://s3.amazonaws.com/media.thejeshgn.com/tiles/richards_park_2021.pmtiles")
+            //const p = new protomaps.PMTiles("https://lib.thejeshgn.com/lib_files/protomaps/richards_park_2021.pmtiles")
             p.metadata().then(m => {
                 let bounds_str = m.bounds.split(',')
                 let bounds = [[+bounds_str[1],+bounds_str[0]],[+bounds_str[3],+bounds_str[2]]]
