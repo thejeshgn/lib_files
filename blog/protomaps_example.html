@@ -7,7 +7,7 @@
         <script src="https://unpkg.com/protomaps@latest/dist/protomaps.min.js"></script>
         <style>
             body, #map {
-                height:100vh;
+                height:500px;
             }
         </style>
     </head>
@@ -21,15 +21,10 @@
 
             p.metadata().then(m => {
                 let bounds_str = m.bounds.split(',')
-                //let bounds = [[+bounds_str[1],+bounds_str[0]],[+bounds_str[3],+bounds_str[2]]]
-                layer = new protomaps.LeafletLayer({url:p})
+                layer = new protomaps.LeafletLayer({url:p, attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'})
                 layer.addTo(map)
-                //map.fitBounds(bounds)
                 map.setView([13.0040513,77.6172144], 19)
-            })
-
-            
-
+            })            
 
         </script>
     </body>
