@@ -3,8 +3,8 @@ let max_blogs = 5;
 var random_blog = Math.floor( (Math.random() * max_blogs) + 1) ;
 
 function embed_blogring(data){
-    content = "I recommend <a href='"+data["title"]+"'>"+data["title"]+"</a>.";
-    content = content +"<br/>"+data["description"];
+    content = "I recommend <a href='" + data["url"] + "'>" + data["title"] + "</a>. ";
+    content = content + data["description"];
     document.getElementById("blog_ring").innerHTML = content;
 }
 
