@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/protomaps@latest/dist/protomaps.min.js"></script>
+        <script src="https://unpkg.com/protomaps@1.14.1/dist/protomaps.min.js"></script>
         <style>
             body, #map {
                 height:500px;
@@ -14,18 +14,10 @@
     <body>
         <div id="map"></div>
         <script type="text/javascript">
-            const map = L.map('map')
-
-            const p = new protomaps.PMTiles("https://lib.thejeshgn.com/lib_files/protomaps/richards_park_2021.pmtiles")
-            //const p = new protomaps.PMTiles("https://s3.amazonaws.com/media.thejeshgn.com/tiles/richards_park_2021.pmtiles")
-
-            p.metadata().then(m => {
-                let bounds_str = m.bounds.split(',')
-                layer = new protomaps.LeafletLayer({url:p, attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'})
-                layer.addTo(map)
-                map.setView([13.0040513,77.6172144], 19)
-            })            
-
+            const map = L.map('map');
+            let url = "https://lib.thejeshgn.com/lib_files/protomaps/richards_park_2021.pmtiles";
+            layer =  protomaps.leafletLayer({url:url});
+            layer.addTo(map);
         </script>
     </body>
 </html>
