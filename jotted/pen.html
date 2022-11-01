@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+<link rel="stylesheet" href="jotted.css">
+<script src="jotted.js"></script>
+<link rel="stylesheet" href="./bower_components/codemirror/lib/codemirror.css">
+<script src="./bower_components/codemirror/lib/codemirror.js"></script>
+<script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="./bower_components/codemirror/mode/css/css.js"></script>
+<script src="./bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<style type="text/css">
+  #jotted-demo-pen {
+    height: 95vh;
+  }
+</style>
+</head>
+<body>
+
+
+<div id="jotted-demo-pen"></div>
+<script>
+  new Jotted(document.querySelector('#jotted-demo-pen'), {
+    files: [{
+      type: 'html',
+      url:"./example.html"
+    },{
+      type: 'css',
+      content:""
+    },{
+      type: 'js',
+      url:"./example.js"
+    }],
+    plugins: [
+      'pen',
+       {
+        name: 'play',
+        options: {
+          firstRun: true
+        }
+      },
+      {
+        name: 'codemirror',
+        options: {
+          lineNumbers: true
+        }
+      }
+  ]
+
+
+  })
+</script>
+
+
+
+</body>
+</html>
