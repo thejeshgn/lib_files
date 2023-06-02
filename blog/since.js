@@ -1,59 +1,39 @@
 setInterval( "updateTime()", 500);
-var sinceYear=2003;
-var sinceMonth=6;
-var sinceDay=25;
-var sinceHour=0;
-var sinceMinutes=0;
-var sinceSec=0;
-var now = new Date();
 
-var nowYear=now.getFullYear();
-var nowMonth=now.getMonth();
-var nowDay=now.getDate();
-var elapsedYear=nowYear-sinceYear;
-var elapsedMonth=nowMonth-sinceMonth;
-if(elapsedMonth <0){
-	nowMonth = nowMonth+12;
-	elapsedMonth=nowMonth-sinceMonth;
-	elapsedYear = elapsedYear-1;
+function getTimeElapsed(dateString) {
+  const now = new Date();
+  const previousDate = new Date(dateString);
+
+  if (isNaN(previousDate)) {
+    return "Invalid date";
+  }
+
+  let seconds = Math.floor((now - previousDate) / 1000);
+  let minutes = Math.floor(seconds / 60);
+  seconds = seconds % 60;
+  let hours = Math.floor(minutes / 60);
+  minutes = minutes % 60;
+  let days = Math.floor(hours / 24);
+  hours = hours % 24;
+  let months = Math.floor(days / 30.44); // Using average days in a month
+  days = Math.floor(days % 30.44);
+  let years = Math.floor(months / 12);
+  months = Math.floor(months % 12);
+
+  return {
+    years: years,
+    months: months,
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  };
 }
-var elapsedDay=nowDay-sinceDay;
-if(elapsedDay < 0){
-	nowDay = nowDay+30;
-	elapsedDay=nowDay-sinceDay;
-	elapsedMonth = elapsedMonth-1;
-}
 
-var elapsedHour;
-var elapsedSec;
-var elapsedMinutes;
 
-document.getElementById("date").innerHTML=elapsedYear+" Years "+elapsedMonth+"  Months "+elapsedDay+"  Days ";
 
 function updateTime(){
-		now = new Date();
-		var nowHour = now.getHours();
-		elapsedHour=nowHour-sinceHour;
-		if(elapsedHour <0){
-			elapsedHour = elapsedHour+24;
-			elapsedHour=nowHour-sinceHour;
-			elapsedDay = elapsedDay-1;
-		}
-		
-		var nowMinutes = now.getMinutes();
-		elapsedMinutes=nowMinutes-sinceMinutes;
-		if(elapsedMinutes <0){
-			elapsedMinutes = elapsedMinutes+60;
-			elapsedMinutes=nowMinutes-sinceMinutes;
-			elapsedHour = elapsedHour-1;
-		}
-
-		var nowSec = now.getSeconds();
-		elapsedSec=nowSec-sinceSec;
-		if(elapsedSec <0){
-			elapsedSec = elapsedSec+60;
-			elapsedSec=nowSec-sinceSec;
-			elapsedMinutes = elapsedMinutes-1;
-		}
-document.getElementById("time").innerHTML=elapsedHour+"  Hours "+elapsedMinutes+" Minutes "+elapsedSec+"  Seconds ";		
+	let {years, months, days, hours, minutes, seconds} =	getTimeElapsed('2003-06-25');
+	document.getElementById("date").innerHTML=years+" Years "+months+"  Months "+days+"  Days ";		
+	document.getElementById("time").innerHTML=hours+"  Hours "+minutes+" Minutes "+seconds+"  Seconds ";		
 }
