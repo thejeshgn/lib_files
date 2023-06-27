@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="eruda.js"></script>    
+    <script type="text/javascript">
+        ;(function () {
+            var src = 'eruda.js';
+            if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+            document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+        })();
+    </script>
+</head>
+<body>
+    <a href="/?eruda=true">To access attach <code>?eruda=true</code> to url</a>
+
+    on other pages
+
+    <code>
+            javascript:(function () { var script = document.createElement('script'); script.src="https://lib.thejeshgn.com/lib_files/eruda/eruda.js"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
+    </code>
+
+</body>
+</html>
