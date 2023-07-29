@@ -8,13 +8,13 @@
     </head>
     <body>
 <pre>
-<code class="eval-python">
+<code class="python">
 print(2+3)
 </code>
 </pre>
         <br/>
 <pre>
-<code class="eval-python">
+<code class="python">
 def factorial(n):
   if n == 0:
     return 1
@@ -27,7 +27,7 @@ print(factorial(5))
 </pre>
     <br/>
 <pre>
-<code class="eval-python">
+<code class="python">
 
 print(factorial(6))
 print(factorial(3))
@@ -38,8 +38,9 @@ print(factorial(3))
     <script>
         window.klipse_settings = {
             eval_idle_msec: 200000, 
-            selector_eval_python: '.eval-python'
+            selector_eval_python_client: '.python',
         };
+        klipse_settings.no_dynamic_scripts=false
         </script>
         <script src="klipse_plugin.min.js"></script>
     </body>
