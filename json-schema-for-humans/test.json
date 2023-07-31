@@ -1,0 +1,157 @@
+{
+  "$id": "https://github.com/coveooss/json-schema-for-humans/config_schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JSON Schema for Humans configuration file",
+  "description": "Choose how to generate JSON Schema for Humans documentation file.\n\nConfiguration parameters can be provided in several ways:\n\n- On the CLI using `--config parameter_name=value` (example: `--config template_name=flat`)\n- On the CLI using a config file `--config-file config.json`\n- From code, by providing a GenerationConfiguration object to the called generation method.",
+  "properties": {
+    "minify": {
+      "type": "boolean",
+      "default": true,
+      "description": "Minify the output HTML document."
+    },
+    "description_is_markdown": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to consider the description as markdown and render it accordingly."
+    },
+    "expand_buttons": {
+      "type": "boolean",
+      "default": false,
+      "description": "Add an `Expand all` and a `Collapse all` button at the top of the generated documentation."
+    },
+    "show_breadcrumbs": {
+      "type": "boolean",
+      "default": true,
+      "description": "For each property, show the relative place of that property in the schema."
+    },
+    "collapse_long_descriptions": {
+      "type": "boolean",
+      "default": true,
+      "description": "If a description is considered big, show only the beginning and add a `Read more` button."
+    },
+    "collapse_long_examples" : {
+      "type": "boolean",
+      "default": true,
+      "description": "If an example is considered big, collapse it, it can be displayed with a `Show` option."
+    },
+    "link_to_reused_ref": {
+      "type": "boolean",
+      "default": true,
+      "description": "If several `$ref` points to the same definition, only render the documentation for this definition the first time. All other occurrences are replaced by an anchor link to the first occurrence. The first occurrence is the one that is the least nested from the top of the schema and appears first in that nesting level.\n\n*Note*: If this option is off and the schema contains recursive definitions, the generation will crash!"
+    },
+    "recursive_detection_depth": {
+      "type": "integer",
+      "default": 25,
+      "description": "*Advanced option*\nIf `link_to_reused_ref` is false and a `$ref` in the schema refers to a parent of itself, we would get a `RecursionError` trying to render the documentation. To avoid this, each reference is checked for circular references.\n\nThis option determines the number of times to recursively follow definitions looking for a circular reference.\n\nIn other words, if a schema has a deeply nested element that refers to itself, this option may need to be increased."
+    },
+    "deprecated_from_description": {
+      "type": "boolean",
+      "default": false,
+      "description": "Mark a property as deprecated (with a big red badge) if the description contains the string `[Deprecated`."
+    },
+    "default_from_description": {
+      "type": "boolean",
+      "default": false,
+      "description": "Extract the default value of a property from the description like this: ``[Default `the_default_value`]``.\n\nThe default value from the \"default\" attribute will be used in priority."
+    },
+    "copy_css": {
+      "type": "boolean",
+      "default": true,
+      "description": "Copy `schema_doc.css` to the same directory as `RESULT_FILE` after generation."
+    },
+    "copy_js": {
+      "type": "boolean",
+      "default": true,
+      "description": "Copy `schema_doc.min.js` to the same directory as `RESULT_FILE` after generation.\n\nThis file contains the logic for the anchor links."
+    },
+    "templates_directory": {
+      "type": "string",
+      "description": "[Deprecated]"
+    },
+    "template_name": {
+      "type": "string",
+      "enum": [
+        "flat",
+        "js",
+        "js_offline",
+        "md",
+        "md_nested"
+      ],
+      "default": "js",
+      "description": "The name of the built-in template to use to render the documentation.\n\n`js` is the default and uses javascript for anchor links, collapsible sections and tabs.\n\n`js_offline` is identical to `js` except that all CSS, fonts and JavaScript are bundled for offline use.\n\n`flat` uses no javascript, but has no interactivity.\n\n`md` is the markdown template.\n\n`md_nested` is the markdown template with collapsible nested sections."
+    },
+    "custom_template_path": {
+      "type": "string",
+      "default": null,
+      "description": "Path to a custom Jinja2 template file.\n\nThere can be multiple files to split the template, but this path should be the entry point.\n\nIf no output file is specified, the extension of the template file will be used to determine the output documentation extension. i.e. if the template is in ./custom_template/content.html, the resulting documentation will have the html extension."
+    },
+    "show_toc": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to render table of contents."
+    },
+    "examples_as_yaml": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to display examples as YAML instead of JSON"
+    },
+    "old_anchor_links": {
+      "type": "boolean",
+      "default": false,
+      "description": "Generate HTML ids for anchor links without special characters (keep only letters, digits, `_`, and `-`).\n\nThis is the old behaviour and is only needed for browsers that do not support HTML 5."
+    },
+    "markdown_options": {
+      "type": "object",
+      "default": {
+        "fenced-code-blocks": {
+          "break-on-newline": true,
+          "cssclass": "highlight jumbotron",
+          "tables": null
+        },
+        "tables": null
+      },
+      "description": "[Markdown 2 options](https://github.com/trentm/python-markdown2/wiki/Extras) for the descriptions. `description_is_markdown` must be true for this to have any effect.\n\n**WARNING**\nAdding an extra, even if the value is false, will activate it. For example `{\"break-on-newline\": false}` will activate the `break-on-newline` extra.",
+      "examples": [
+        {
+          "fenced-code-blocks": {
+            "cssclass": "highlight jumbotron"
+          },
+          "tables": null,
+          "break-on-newline": true,
+          "cuddled-lists": true
+        }
+      ]
+    },
+    "template_md_options": {
+      "type": "object",
+      "description": "specific options to md template",
+      "properties": {
+        "badge_as_image": {
+          "type": "boolean",
+          "description": "if true generate badges(eg: optional, required) using embedded image (https://img.shields.io).\n\n if false, use text instead",
+          "default": false
+        },
+        "show_heading_numbers": {
+          "type": "boolean",
+          "description": "if true generate heading numbers to correspond to table of contents.\n\n if false, do not generate heading numbers",
+          "default": true
+        },
+        "show_array_restrictions": {
+          "type": "boolean",
+          "description": "if true generate array restrictions section.\n\n if false, do not generate",
+          "default": true
+        }
+      }
+    },
+    "with_footer": {
+      "type": "boolean",
+      "description": "Whether to show the footer linking to the library repo and with the generation datetime",
+      "default": true
+    },
+    "footer_show_time": {
+      "type": "boolean",
+      "description": "Whether the footer should display the generation time",
+      "default": true
+    }
+  }
+}

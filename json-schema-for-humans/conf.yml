@@ -1,0 +1,9 @@
+template_name: js_offline
+show_breadcrumbs: true
+description_is_markdown: true
+expand_buttons: true
+copy_js: true
+copy_css: true
+show_toc: true
+with_footer: false
+footer_show_time: false
