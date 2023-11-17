@@ -1,0 +1,43 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://lib.thejeshgn.com/lib_files/datatable/media/css/jquery.dataTables.min.css">
+  <script src="https://lib.thejeshgn.com/lib_files/datatable/media/js/jquery.js"></script>
+  <script src="https://lib.thejeshgn.com/lib_files/datatable/media/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+  <table id="sib_contributors" class="display" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>OSM Username</th>
+                  <th>Contribution Count</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>OSM Username</th>
+                  <th>Contribution Count</th>
+              </tr>
+          </tfoot>
+      </table>
+</body>
+<script>
+$(document).ready(function() {
+$('#sib_contributors').dataTable( {
+  "ajax": {
+    "url": "https://data.thejeshgn.com/sib/_design/listing/_view/top_contributors?descending=true&limit=1",
+    "dataSrc": function ( json ) {
+      data = json.rows[0].value.content;
+      console.log(data);
+      return data;
+    }
+  },
+   "columns":[
+            {"data":"user"},
+            {"data":"count"}
+          ],
+  order: [[1, 'desc']]
+} );
+
+} );
+</script>
+</html>
