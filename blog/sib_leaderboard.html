@@ -19,6 +19,7 @@
               </tr>
           </tfoot>
       </table>
+      <div id ="last_modified_date"></div>
 </body>
 <script>
 $(document).ready(function() {
@@ -28,6 +29,7 @@ $('#sib_contributors').dataTable( {
     "dataSrc": function ( json ) {
       data = json.rows[0].value.content;
       console.log(data);
+      $("#last_modified_date").html("Last updated on: "+json.rows[0].value["_id"]);
       return data;
     }
   },
