@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgrist_core=self.webpackChunkgrist_core||[]).push([[273],{4273:(e,t)=>{var r=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if(void 0!==r)return r;throw new Error("unable to locate global object")}();e.exports=t=r.fetch,r.fetch&&(t.default=r.fetch.bind(r)),t.Headers=r.Headers,t.Request=r.Request,t.Response=r.Response}}]);
+//# sourceMappingURL=273.bundle.js.map

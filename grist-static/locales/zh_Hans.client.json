@@ -1,0 +1,1170 @@
+{
+    "AccessRules": {
+        "Remove {{- tableId }} rules": "删除 {{- tableId }} 规则",
+        "Remove {{- name }} user attribute": "删除 {{- name }} 用户属性",
+        "Reset": "重置",
+        "Rules for table ": "表格规则 ",
+        "Save": "保存",
+        "Saved": "已保存",
+        "Special Rules": "特殊规则",
+        "Type a message...": "输入一个拒绝时的提示信息…",
+        "User Attributes": "用户属性",
+        "View As": "查看为",
+        "Seed rules": "种子规则",
+        "Permission to edit document structure": "编辑文档结构的权限",
+        "Add Column Rule": "添加列规则",
+        "Attribute to Look Up": "要查找的属性",
+        "Everyone": "每个人",
+        "Permission to access the document in full when needed": "允许在需要时获取文件的全部内容",
+        "Add Default Rule": "添加默认规则",
+        "Add Table Rules": "添加表格规则",
+        "Add User Attributes": "添加用户属性",
+        "Allow everyone to copy the entire document, or view it in full in fiddle mode.\nUseful for examples and templates, but not for sensitive data.": "允许每个人复制整个文档，或在演示模式下完整查看。\n适用于示例和模板，但不要用在有敏感数据的情况下。",
+        "Attribute name": "属性名称",
+        "Condition": "条件",
+        "Default Rules": "默认规则",
+        "Enter Condition": "输入条件",
+        "Permission to view Access Rules": "查看访问规则的权限",
+        "Allow everyone to view Access Rules.": "允许所有人查看访问规则。",
+        "Lookup Table": "查找表",
+        "Checking...": "检查中…",
+        "Delete Table Rules": "删除表格规则",
+        "Everyone Else": "其他所有人",
+        "Invalid": "无效的",
+        "Lookup Column": "查找列",
+        "Permissions": "权限",
+        "Remove column {{- colId }} from {{- tableId }} rules": "从 {{- tableId }} 规则中删除列 {{- colId }}",
+        "When adding table rules, automatically add a rule to grant OWNER full access.": "添加表规则时，自动添加规则以授予 OWNER 完全访问权限。",
+        "Allow editors to edit structure (e.g. modify and delete tables, columns, layouts), and to write formulas, which give access to all data regardless of read restrictions.": "允许编辑者编辑结构（例如修改和删除表、列、布局）和编写公式，无论读取限制如何，都可以访问所有数据。",
+        "This default should be changed if editors' access is to be limited. ": "如果要限制编辑者的访问权限，则应更改此默认值。 "
+    },
+    "AccountPage": {
+        "API": "API",
+        "API Key": "API密钥",
+        "Account settings": "帐户设置",
+        "Allow signing in to this account with Google": "允许通过谷歌登录此帐号",
+        "Change Password": "更改密码",
+        "Edit": "编辑",
+        "Email": "电子邮件",
+        "Login Method": "登录方式",
+        "Name": "名字",
+        "Names only allow letters, numbers and certain special characters": "名称仅允许使用字母、数字和某些特殊字符",
+        "Password & Security": "密码",
+        "Save": "保存",
+        "Theme": "主题",
+        "Two-factor authentication": "双因素身份验证",
+        "Two-factor authentication is an extra layer of security for your Grist account designed to ensure that you're the only person who can access your account, even if someone knows your password.": "双因素身份验证是您的Grist帐户的额外安全层，旨在确保您是唯一可以访问您的帐户的人，即使有人知道您的密码。",
+        "Language": "语言"
+    },
+    "CodeEditorPanel": {
+        "Access denied": "访问被拒绝",
+        "Code View is available only when you have full document access.": "代码视图只有在你有完整的文档权限时才可用。"
+    },
+    "ColorSelect": {
+        "Cancel": "取消",
+        "Default cell style": "默认单元格样式",
+        "Apply": "应用"
+    },
+    "ColumnFilterMenu": {
+        "All": "全部",
+        "All Shown": "全部显示",
+        "Filter by Range": "按范围筛选",
+        "No matching values": "没有匹配的值",
+        "None": "None",
+        "Min": "Min",
+        "Max": "Max",
+        "Start": "开始",
+        "Other Matching": "其他匹配",
+        "Other Non-Matching": "其他不匹配的",
+        "Others": "其他",
+        "Search": "搜索",
+        "All Except": "全部除外",
+        "End": "结束",
+        "Other Values": "其他值",
+        "Search values": "搜索值",
+        "Future Values": "未来价值"
+    },
+    "CustomSectionConfig": {
+        " (optional)": " （可选）",
+        "Add": "添加",
+        "Full document access": "完整文档访问权限",
+        "Learn more about custom widgets": "了解有关自定义小部件的更多信息",
+        "No document access": "没有文档访问权限",
+        "Open configuration": "打开配置",
+        "Pick a column": "选择一列",
+        "Read selected table": "读取选定的表格",
+        "Select Custom Widget": "选择自定义小部件",
+        "Widget does not require any permissions.": "小部件不需要任何权限。",
+        "Widget needs to {{read}} the current table.": "小部件需要 {{read}} 当前表。",
+        "Widget needs {{fullAccess}} to this document.": "小部件需要 {{fullAccess}} 到此文档。",
+        "Enter Custom URL": "输入自定义URL",
+        "Pick a {{columnType}} column": "选择一个 {{columnType}} 列",
+        "{{wrongTypeCount}} non-{{columnType}} columns are not shown_one": "{{wrongTypeCount}} 非 {{columnType}} 列未显示",
+        "{{wrongTypeCount}} non-{{columnType}} columns are not shown_other": "{{wrongTypeCount}} 非 {{columnType}} 列未显示"
+    },
+    "ChartView": {
+        "Create separate series for each value of the selected column.": "为所选列的每个值创建单独的系列。",
+        "Toggle chart aggregation": "切换图表聚合",
+        "selected new group data columns": "选定的新组数据列",
+        "Pick a column": "选择一列",
+        "Each Y series is followed by a series for the length of error bars.": "每个 Y 系列后跟一个误差条长度的系列。",
+        "Each Y series is followed by two series, for top and bottom error bars.": "每个 Y 系列后跟两个系列，用于顶部和底部误差线。"
+    },
+    "DataTables": {
+        "Click to copy": "点击复制",
+        "Delete {{formattedTableName}} data, and remove it from all pages?": "删除 {{formattedTableName}} 数据，并将其从所有页面中删除？",
+        "Duplicate Table": "复制表",
+        "Raw Data Tables": "原始数据表",
+        "Table ID copied to clipboard": "表 ID 已复制到剪贴板",
+        "You do not have edit access to this document": "您没有对此文档的编辑权限"
+    },
+    "CellContextMenu": {
+        "Duplicate rows_one": "重复行",
+        "Delete {{count}} columns_other": "删除 {{count}} 列",
+        "Delete {{count}} rows_one": "删除行",
+        "Duplicate rows_other": "重复行",
+        "Filter by this value": "按此值筛选",
+        "Insert column to the left": "在左侧插入列",
+        "Insert row below": "在下方插入行",
+        "Insert column to the right": "在右侧插入列",
+        "Reset {{count}} columns_other": "重置 {{count}} 列",
+        "Insert row": "插入行",
+        "Insert row above": "在上方插入行",
+        "Reset {{count}} columns_one": "重置列",
+        "Reset {{count}} entire columns_one": "重置整列",
+        "Reset {{count}} entire columns_other": "重置 {{count}} 整列",
+        "Clear cell": "清除单元格",
+        "Clear values": "清除值",
+        "Copy anchor link": "复制锚点链接",
+        "Delete {{count}} columns_one": "删除列",
+        "Delete {{count}} rows_other": "删除 {{count}} 行",
+        "Paste": "黏贴",
+        "Comment": "评论",
+        "Copy": "拷贝",
+        "Cut": "剪切"
+    },
+    "ACUserManager": {
+        "Enter email address": "请输入电邮地址",
+        "Invite new member": "邀请新成员",
+        "We'll email an invite to {{email}}": "我们将通过电子邮件向 {{email}} 发送邀请"
+    },
+    "ActionLog": {
+        "Column {{colId}} was subsequently removed in action #{{action.actionNum}}": "列 {{colId}} 将在操作 #{{action.actionNum}} 中删除",
+        "Action Log failed to load": "操作日志加载失败",
+        "Table {{tableId}} was subsequently removed in action #{{actionNum}}": "表 {{tableId}} 将在操作 #{{actionNum}} 中删除",
+        "This row was subsequently removed in action {{action.actionNum}}": "该行将在操作 {{action.actionNum}} 中删除"
+    },
+    "ApiKey": {
+        "This API key can be used to access this account anonymously via the API.": "该API密钥可用于通过API匿名访问该账户。",
+        "You're about to delete an API key. This will cause all future requests using this API key to be rejected. Do you still want to delete?": "您将要删除 API 密钥。这将导致将来使用此 API 密钥的所有请求被拒绝。是否仍要删除？",
+        "By generating an API key, you will be able to make API calls for your own account.": "通过生成 API 密钥，您将能够为自己的帐户进行 API 调用。",
+        "Click to show": "点击显示",
+        "Create": "创建",
+        "Remove": "删除",
+        "Remove API Key": "删除 API 密钥",
+        "This API key can be used to access your account via the API. Don’t share your API key with anyone.": "此 API 密钥可用于通过 API 访问您的帐户。不要与任何人分享您的 API 密钥。"
+    },
+    "AccountWidget": {
+        "Access Details": "访问详情",
+        "Accounts": "帐户",
+        "Add Account": "新增帐户",
+        "Document Settings": "文档设置",
+        "Manage Team": "管理团队",
+        "Pricing": "定价",
+        "Profile Settings": "配置设置",
+        "Sign Out": "登出",
+        "Sign in": "登录",
+        "Switch Accounts": "切换帐户",
+        "Toggle Mobile Mode": "切换移动模式",
+        "Activation": "激活",
+        "Billing Account": "计费账户",
+        "Support Grist": "支持 Grist",
+        "Upgrade Plan": "升级计划",
+        "Sign In": "登录",
+        "Sign Up": "注册",
+        "Use This Template": "使用这个模板"
+    },
+    "ViewAsDropdown": {
+        "View As": "查看为",
+        "Users from table": "表中的用户",
+        "Example Users": "示例用户"
+    },
+    "AddNewButton": {
+        "Add New": "新增"
+    },
+    "App": {
+        "Description": "描述",
+        "Key": "关键",
+        "Memory Error": "内存错误",
+        "Translators: please translate this only when your language is ready to be offered to users": "[TRANSLATED]"
+    },
+    "AppHeader": {
+        "Home Page": "主页",
+        "Legacy": "遗产",
+        "Personal Site": "个人网站",
+        "Team Site": "团队网站",
+        "Grist Templates": "Grist 模板"
+    },
+    "AppModel": {
+        "This team site is suspended. Documents can be read, but not modified.": "此团队网站已挂起。可以读取文档，但不能修改文档。"
+    },
+    "DocMenu": {
+        "You are on your personal site. You also have access to the following sites:": "你在你的个人网站上。 您还可以访问以下站点：",
+        "Document will be permanently deleted.": "文档将被永久删除。",
+        "Documents stay in Trash for 30 days, after which they get deleted permanently.": "文档在回收站中保留 30 天，之后它们将被永久删除。",
+        "Edited {{at}}": "编辑于{{at}}",
+        "Examples & Templates": "示例和模板",
+        "Examples and Templates": "示例和模板",
+        "Featured": "精选",
+        "Manage Users": "管理用户",
+        "More Examples and Templates": "更多示例和模板",
+        "Move": "移动",
+        "Move {{name}} to workspace": "将 {{name}} 移动到工作区",
+        "Other Sites": "其他网站",
+        "Permanently Delete \"{{name}}\"?": "永久删除“{{name}}”？",
+        "Pin Document": "Pin文档",
+        "Pinned Documents": "固定文件",
+        "Remove": "消除",
+        "Rename": "改名",
+        "(The organization needs a paid plan)": "（该组织需要付费计划）",
+        "Access Details": "访问详细信息",
+        "All Documents": "所有文件",
+        "By Date Modified": "按修改日期",
+        "By Name": "按名字",
+        "Current workspace": "当前工作区",
+        "Delete": "删除",
+        "Delete Forever": "永久删除",
+        "Deleted {{at}}": "已删除 {{at}}",
+        "Discover More Templates": "发现更多模板",
+        "Document will be moved to Trash.": "文档将被移至废纸篓。",
+        "Requires edit permissions": "需要编辑权限",
+        "Restore": "恢复",
+        "This service is not available right now": "该服务目前不可用",
+        "To restore this document, restore the workspace first.": "要恢复此文档，请先恢复工作区。",
+        "Trash": "回收站",
+        "Trash is empty.": "回收站是空的。",
+        "Unpin Document": "取消固定文档",
+        "Workspace not found": "找不到工作区",
+        "You are on the {{siteName}} site. You also have access to the following sites:": "您在 {{siteName}} 网站上。 您还可以访问以下站点：",
+        "You may delete a workspace forever once it has no documents in it.": "一旦其中没有文档，您可以永远删除工作区。",
+        "Delete {{name}}": "删除 {{name}}"
+    },
+    "DocPageModel": {
+        "Add Empty Table": "添加空表",
+        "Add Page": "添加页面",
+        "Add Widget to Page": "将小部件添加到页面",
+        "Enter recovery mode": "进入恢复模式",
+        "Error accessing document": "访问文档时出错",
+        "Reload": "重新加载",
+        "You do not have edit access to this document": "您没有对此文档的编辑权限",
+        "Sorry, access to this document has been denied. [{{error}}]": "对不起，该文件的访问已被拒绝。[{{error}}]",
+        "You can try reloading the document, or using recovery mode. Recovery mode opens the document to be fully accessible to owners, and inaccessible to others. It also disables formulas. [{{error}}]": "您可以尝试重新加载文档，或使用恢复模式。在恢复模式中打开文档时，所有者可以完全访问，其他人无法访问。它还会禁用公式。 [{{error}}]",
+        "Document owners can attempt to recover the document. [{{error}}]": "文档所有者可以尝试恢复文档。 [{{error}}]"
+    },
+    "SortFilterConfig": {
+        "Sort": "排序",
+        "Filter": "筛选",
+        "Revert": "恢复",
+        "Save": "保存",
+        "Update Sort & Filter settings": "更新排序和筛选设置"
+    },
+    "DocHistory": {
+        "Snapshots": "快照",
+        "Activity": "活动",
+        "Beta": "测试版",
+        "Compare to Current": "与当前比较",
+        "Compare to Previous": "与以前相比",
+        "Open Snapshot": "打开快照",
+        "Snapshots are unavailable.": "快照不可用。"
+    },
+    "WelcomeTour": {
+        "Share": "分享",
+        "Reference": "参考",
+        "Flying higher": "飞得更高",
+        "Help Center": "帮助中心",
+        "Sharing": "分享",
+        "Welcome to Grist!": "欢迎来到格里斯特！",
+        "Browse our {{templateLibrary}} to discover what's possible and get inspired.": "浏览我们的 {{templateLibrary}} 发现可能性并获得灵感。",
+        "Building up": "建起来",
+        "Add New": "添新",
+        "Configuring your document": "配置您的文档",
+        "Customizing columns": "自定义列",
+        "Double-click or hit {{enter}} on a cell to edit it. ": "双击或点击单元格上的 {{enter}} 对其进行编辑。 ",
+        "Editing Data": "编辑数据",
+        "Enter": "进入",
+        "Make it relational! Use the {{ref}} type to link tables. ": "让它有关系！ 使用 {{ref}} 类型链接表格。 ",
+        "Set formatting options, formulas, or column types, such as dates, choices, or attachments. ": "设置格式设置选项、公式或列类型，例如日期、选项或附件。 ",
+        "Start with {{equal}} to enter a formula.": "从 {{equal}} 开始输入公式。",
+        "Toggle the {{creatorPanel}} to format columns, ": "切换 {{creatorPanel}} 以格式化列， ",
+        "Use the Share button ({{share}}) to share the document or export data.": "使用共享按钮 ({{share}}) 共享文档或导出数据。",
+        "Use {{addNew}} to add widgets, pages, or import more data. ": "使用 {{addNew}} 添加小部件、页面或导入更多数据。 ",
+        "Use {{helpCenter}} for documentation or questions.": "使用 {{helpCenter}} 获取文档或问题。",
+        "convert to card view, select data, and more.": "转换为卡片视图、选择数据等。",
+        "creator panel": "创作者面板",
+        "template library": "模板库"
+    },
+    "HomeIntro": {
+        "Interested in using Grist outside of your team? Visit your free ": "有兴趣在您的团队之外使用 Grist 吗？ 访问您的免费 ",
+        "Invite Team Members": "邀请团队成员",
+        "Sign up": "注册",
+        "personal site": "个人网站",
+        "Any documents created in this site will appear here.": "在此站点中创建的任何文档都将显示在此处。",
+        "Browse Templates": "浏览模板",
+        "Create Empty Document": "创建空文档",
+        "Get started by creating your first Grist document.": "从创建您的第一个 Grist 文档开始。",
+        "Get started by exploring templates, or creating your first Grist document.": "从浏览模板或创建您的第一个 Grist 文档开始。",
+        "Get started by inviting your team and creating your first Grist document.": "开始邀请您的团队并创建您的第一个 Grist 文档。",
+        "Help Center": "帮助中心",
+        "Import Document": "导入文档",
+        "Sprouts Program": "新芽计划",
+        "This workspace is empty.": "这个工作区是空的。",
+        "Visit our {{link}} to learn more.": "访问我们的{{link}}以了解更多信息。",
+        "Welcome to Grist!": "欢迎来到格里斯特！",
+        "Welcome to Grist, {{name}}!": "欢迎来到 Grist，{{name}}！",
+        "Welcome to {{orgName}}": "欢迎来到{{orgName}}",
+        "You have read-only access to this site. Currently there are no documents.": "您对该站点具有只读访问权限。 目前没有文件。",
+        "{{signUp}} to save your work. ": "{{signUp}} 保存您的工作。 ",
+        "Welcome to {{- orgName}}": "欢迎来到 {{- orgName}}",
+        "Welcome to Grist, {{- name}}!": "欢迎来到 Grist，{{- name}}！"
+    },
+    "HomeLeftPane": {
+        "Delete": "删除",
+        "Trash": "回收站",
+        "Access Details": "访问详细信息",
+        "All Documents": "所有文件",
+        "Create Empty Document": "创建空文档",
+        "Create Workspace": "创建工作区",
+        "Delete {{workspace}} and all included documents?": "删除 {{workspace}} 和所有包含的文档？",
+        "Examples & Templates": "模板",
+        "Import Document": "导入文档",
+        "Manage Users": "管理用户",
+        "Rename": "改名",
+        "Workspace will be moved to Trash.": "工作区将移至回收站。",
+        "Workspaces": "工作区",
+        "Tutorial": "教程"
+    },
+    "MakeCopyMenu": {
+        "Cancel": "取消",
+        "Enter document name": "输入文档名称",
+        "Name": "姓名",
+        "No destination workspace": "没有目标工作区",
+        "Organization": "组织",
+        "Sign up": "注册",
+        "Update": "更新",
+        "As Template": "作为模板",
+        "Be careful, the original has changes not in this document. Those changes will be overwritten.": "请注意，原始文档中没有更改。 这些更改将被覆盖。",
+        "However, it appears to be already identical.": "但是，它似乎已经完全相同。",
+        "Include the structure without any of the data.": "包括没有任何数据的结构。",
+        "It will be overwritten, losing any content not in this document.": "它将被覆盖，丢失不在本文档中的任何内容。",
+        "Original Has Modifications": "原始有修改",
+        "Original Looks Unrelated": "原始外观无关",
+        "Original Looks Identical": "原始外观相同",
+        "Overwrite": "覆盖",
+        "Replacing the original requires editing rights on the original document.": "替换原件需要对原始文档的编辑权限。",
+        "The original version of this document will be updated.": "本文档的原始版本将被更新。",
+        "To save your changes, please sign up, then reload this page.": "要保存您的更改，请注册，然后重新加载此页面。",
+        "Update Original": "更新原件",
+        "Workspace": "工作区",
+        "You do not have write access to the selected workspace": "您没有对所选工作区的写入权限",
+        "You do not have write access to this site": "您没有对此网站的写入权限"
+    },
+    "NotifyUI": {
+        "Go to your free personal site": "转到您的免费个人网站",
+        "No notifications": "没有通知",
+        "Notifications": "通知",
+        "Renew": "更新",
+        "Ask for help": "请求帮忙",
+        "Cannot find personal site, sorry!": "找不到个人网站，抱歉！",
+        "Give feedback": "给予反馈",
+        "Report a problem": "报告一个问题",
+        "Upgrade Plan": "升级计划",
+        "Manage billing": "管理计费"
+    },
+    "OpenVideoTour": {
+        "Grist Video Tour": "格里斯特视频之旅",
+        "Video Tour": "视频导览",
+        "YouTube video player": "YouTube 视频播放器"
+    },
+    "RecordLayout": {
+        "Updating record layout.": "更新记录布局。"
+    },
+    "RightPanel": {
+        "DATA TABLE": "数据表",
+        "DATA TABLE NAME": "数据表名称",
+        "CHART TYPE": "图表类型",
+        "COLUMN TYPE": "栏目类型",
+        "CUSTOM": "风俗",
+        "Change Widget": "更改小部件",
+        "Columns_one": "列",
+        "Columns_other": "列",
+        "Data": "数据",
+        "Detach": "分离",
+        "Edit Data Selection": "编辑数据选择",
+        "Fields_one": "字段",
+        "Fields_other": "字段",
+        "GROUPED BY": "分组依据",
+        "ROW STYLE": "行式",
+        "Row Style": "行样式",
+        "SELECT BY": "选择依据",
+        "SELECTOR FOR": "选择器",
+        "SOURCE DATA": "源数据",
+        "Save": "保存",
+        "Select Widget": "选择小部件",
+        "Series_one": "系列",
+        "Series_other": "系列",
+        "Sort & Filter": "排序&过滤",
+        "TRANSFORM": "转换",
+        "Theme": "主题",
+        "WIDGET TITLE": "小部件标题",
+        "Widget": "小部件",
+        "You do not have edit access to this document": "您没有对此文档的编辑权限",
+        "Add referenced columns": "添加引用列"
+    },
+    "RowContextMenu": {
+        "Insert row below": "在下方插入行",
+        "Copy anchor link": "复制锚链接",
+        "Delete": "删除",
+        "Duplicate rows_one": "重复行",
+        "Duplicate rows_other": "重复行",
+        "Insert row": "插入行",
+        "Insert row above": "在上方插入行"
+    },
+    "UserManagerModel": {
+        "In Full": "在全",
+        "No Default Access": "没有默认访问权限",
+        "None": "没有任何",
+        "Viewer": "查看器",
+        "Editor": "编辑",
+        "Owner": "所有者",
+        "View & Edit": "查看和编辑",
+        "View Only": "只读"
+    },
+    "ValidationPanel": {
+        "Rule {{length}}": "规则 {{length}}",
+        "Update formula (Shift+Enter)": "更新公式（Shift+Enter）"
+    },
+    "ViewConfigTab": {
+        "Compact": "袖珍的",
+        "Edit Card Layout": "编辑卡片布局",
+        "Form": "形式",
+        "Make On-Demand": "按需制作",
+        "Plugin: ": "插入： ",
+        "Section: ": "部分： ",
+        "Advanced settings": "高级设置",
+        "Big tables may be marked as \"on-demand\" to avoid loading them into the data engine.": "大表可能被标记为“按需”以避免将它们加载到数据引擎中。",
+        "Blocks": "积木",
+        "Unmark On-Demand": "取消标记点播"
+    },
+    "ViewLayoutMenu": {
+        "Delete record": "删除记录",
+        "Open configuration": "打开配置",
+        "Print widget": "打印小部件",
+        "Advanced Sort & Filter": "高级排序和过滤",
+        "Copy anchor link": "复制锚链接",
+        "Data selection": "数据选择",
+        "Delete widget": "删除小部件",
+        "Download as CSV": "下载为 CSV",
+        "Download as XLSX": "下载为 XLSX",
+        "Edit Card Layout": "编辑卡片布局",
+        "Show raw data": "显示原始数据",
+        "Widget options": "小部件选项",
+        "Add to page": "添加至页面",
+        "Collapse widget": "折叠小部件"
+    },
+    "ViewSectionMenu": {
+        "Save": "保存",
+        "Update Sort&Filter settings": "更新排序和筛选设置",
+        "Revert": "恢复",
+        "(customized)": "（定制）",
+        "(empty)": "（空的）",
+        "(modified)": "（修改的）",
+        "Custom options": "自定义选项",
+        "FILTER": "筛选",
+        "SORT": "排序"
+    },
+    "VisibleFieldsConfig": {
+        "Cannot drop items into Hidden Fields": "无法将项目放入隐藏字段",
+        "Clear": "清除",
+        "Hidden Fields cannot be reordered": "隐藏字段无法重新排序",
+        "Select All": "全选",
+        "Hide {{label}}": "隐藏 {{label}}",
+        "Hidden {{label}}": "隐藏 {{label}}",
+        "Show {{label}}": "显示 {{label}}",
+        "Visible {{label}}": "可见 {{label}}"
+    },
+    "WelcomeQuestions": {
+        "IT & Technology": "IT和技术",
+        "Sales": "销售量",
+        "What brings you to Grist? Please help us serve you better.": "是什么让你来到格里斯特？ 请帮助我们更好地为您服务。",
+        "Education": "教育",
+        "Finance & Accounting": "财务与会计",
+        "HR & Management": "人力资源和管理",
+        "Marketing": "营销",
+        "Media Production": "媒体制作",
+        "Other": "其他",
+        "Product Development": "产品开发",
+        "Research": "研究",
+        "Type here": "在此输入",
+        "Welcome to Grist!": "欢迎来到格里斯特！"
+    },
+    "breadcrumbs": {
+        "recovery mode": "恢复模式",
+        "snapshot": "快照",
+        "fiddle": "小提琴",
+        "override": "覆盖",
+        "unsaved": "未保存",
+        "You may make edits, but they will create a new copy and will\nnot affect the original document.": "您可以进行编辑，但他们会创建一个新副本并且\n不影响原文件。"
+    },
+    "ConditionalStyle": {
+        "Row Style": "行样式",
+        "Rule must return True or False": "规则必须返回 True 或 False",
+        "Add another rule": "添加另一条规则",
+        "Add conditional style": "添加条件样式",
+        "Error in style rule": "样式规则错误"
+    },
+    "CurrencyPicker": {
+        "Invalid currency": "货币无效"
+    },
+    "DiscussionEditor": {
+        "Only current page": "仅当前页面",
+        "Only my threads": "只有我的线程",
+        "Resolve": "解决",
+        "Save": "保存",
+        "Show resolved comments": "显示已解决的评论",
+        "Showing last {{nb}} comments": "显示最后 {{nb}} 条评论",
+        "Cancel": "取消",
+        "Comment": "评论",
+        "Edit": "编辑",
+        "Marked as resolved": "标记为已解决",
+        "Open": "打开",
+        "Remove": "删除",
+        "Reply": "回复",
+        "Reply to a comment": "回复评论",
+        "Started discussion": "开始讨论",
+        "Write a comment": "写一个评论"
+    },
+    "FieldBuilder": {
+        "Changing multiple column types": "更改多个列类型",
+        "Revert field settings for {{colId}} to common": "将 {{colId}} 的字段设置恢复为通用",
+        "Save field settings for {{colId}} as common": "将 {{colId}} 的字段设置保存为通用",
+        "Apply Formula to Data": "将公式应用于数据",
+        "CELL FORMAT": "细胞格式",
+        "DATA FROM TABLE": "表中数据",
+        "Mixed format": "混合格式",
+        "Mixed types": "混合类型",
+        "Use separate field settings for {{colId}}": "为 {{colId}} 使用单独的字段设置"
+    },
+    "FormulaEditor": {
+        "Column or field is required": "列或字段是必需的",
+        "Error in the cell": "单元格错误",
+        "Errors in all {{numErrors}} cells": "所有 {{numErrors}} 单元格中的错误",
+        "Errors in {{numErrors}} of {{numCells}} cells": "{{numCells}} 个单元格中的 {{numErrors}} 个错误",
+        "editingFormula is required": "需要编辑公式",
+        "Enter formula or {{button}}.": "输入公式或 {{button}} 。",
+        "Enter formula.": "输入公式。",
+        "Expand Editor": "展开编辑器",
+        "use AI Assistant": "使用AI助手"
+    },
+    "DocTour": {
+        "Cannot construct a document tour from the data in this document. Ensure there is a table named GristDocTour with columns Title, Body, Placement, and Location.": "无法从该文档中的数据构建文档浏览。 确保有一个名为 GristDocTour 的表，其中包含 Title、Body、Placement 和 Location 列。",
+        "No valid document tour": "无有效证件游"
+    },
+    "DocumentSettings": {
+        "Currency:": "货币：",
+        "Document Settings": "文档设置",
+        "Engine (experimental {{span}} change at own risk):": "引擎（实验性 {{span}} 更改风险自负）：",
+        "Local currency ({{currency}})": "当地货币（{{currency}}）",
+        "Locale:": "语言环境：",
+        "Save": "保存",
+        "Save and Reload": "保存并重新加载",
+        "This document's ID (for API use):": "本文档的 ID（供 API 使用）：",
+        "Time Zone:": "时区：",
+        "API": "应用程序接口",
+        "Document ID copied to clipboard": "文档 ID 已复制到剪贴板",
+        "Ok": "好的",
+        "Manage Webhooks": "管理 Webhooks",
+        "Webhooks": "Webhooks"
+    },
+    "DocumentUsage": {
+        "Attachments Size": "附件大小",
+        "Contact the site owner to upgrade the plan to raise limits.": "联系站点所有者以升级计划以提高限制。",
+        "Data Size": "数据大小",
+        "For higher limits, ": "对于更高的限制， ",
+        "Rows": "行数",
+        "Usage": "使用量",
+        "Usage statistics are only available to users with full access to the document data.": "使用情况统计信息仅供对文档数据具有完全访问权限的用户使用。",
+        "start your 30-day free trial of the Pro plan.": "开始 Pro 计划的 30 天免费试用。"
+    },
+    "Drafts": {
+        "Restore last edit": "恢复上次编辑",
+        "Undo discard": "撤消丢弃"
+    },
+    "DuplicateTable": {
+        "Copy all data in addition to the table structure.": "复制除表结构外的所有数据。",
+        "Name for new table": "新表的名称",
+        "Only the document default access rules will apply to the copy.": "只有文档默认访问规则将应用于副本。",
+        "Instead of duplicating tables, it's usually better to segment data using linked views. {{link}}": "与其复制表，不如使用链接视图分割数据。{{link}}"
+    },
+    "ExampleInfo": {
+        "Check out our related tutorial for how to model business data, use formulas, and manage complexity.": "查看我们的相关教程，了解如何建模业务数据、使用公式和管理复杂性。",
+        "Check out our related tutorial to learn how to create summary tables and charts, and to link charts dynamically.": "查看我们的相关教程，了解如何创建汇总表和图表，以及动态链接图表。",
+        "Investment Research": "投资研究",
+        "Lightweight CRM": "轻量级客户关系管理",
+        "Tutorial: Analyze & Visualize": "教程：分析和可视化",
+        "Tutorial: Create a CRM": "教程：创建 CRM",
+        "Tutorial: Manage Business Data": "教程：管理业务数据",
+        "Welcome to the Afterschool Program template": "欢迎使用课后计划模板",
+        "Welcome to the Investment Research template": "欢迎使用投资研究模板",
+        "Welcome to the Lightweight CRM template": "欢迎使用轻量级 CRM 模板",
+        "Afterschool Program": "课后活动",
+        "Check out our related tutorial for how to link data, and create high-productivity layouts.": "查看我们的相关教程，了解如何链接数据和创建高效布局。"
+    },
+    "FieldConfig": {
+        "COLUMN LABEL AND ID": "列标签和 ID",
+        "Clear and make into formula": "澄清并制成配方",
+        "Clear and reset": "清除并重置",
+        "Column options are limited in summary tables.": "列选项在汇总表中受到限制。",
+        "Convert column to data": "将列转换为数据",
+        "Convert to trigger formula": "转换为触发公式",
+        "Data Columns_one": "数据栏",
+        "Data Columns_other": "数据列",
+        "Empty Columns_one": "空列",
+        "Empty Columns_other": "空列",
+        "Enter formula": "输入公式",
+        "Formula Columns_one": "公式栏",
+        "Formula Columns_other": "公式列",
+        "Make into data column": "制作成数据栏",
+        "Mixed Behavior": "混合行为",
+        "Set formula": "设定公式",
+        "Set trigger formula": "设置触发公式",
+        "TRIGGER FORMULA": "触发公式",
+        "DESCRIPTION": "描述",
+        "COLUMN BEHAVIOR": "列行为"
+    },
+    "FieldMenus": {
+        "Revert to common settings": "恢复到常用设置",
+        "Save as common settings": "另存为常用设置",
+        "Using common settings": "使用通用设置",
+        "Use separate settings": "使用单独的设置",
+        "Using separate settings": "使用单独的设置"
+    },
+    "FilterConfig": {
+        "Add Column": "添加列"
+    },
+    "FilterBar": {
+        "SearchColumns": "搜索列",
+        "Search Columns": "搜索列"
+    },
+    "GridOptions": {
+        "Grid Options": "网格选项",
+        "Horizontal Gridlines": "水平网格线",
+        "Vertical Gridlines": "垂直网格线",
+        "Zebra Stripes": "斑马条纹"
+    },
+    "GridViewMenus": {
+        "Add Column": "添加列",
+        "Add to sort": "添加到排序",
+        "Clear values": "清除值",
+        "Column Options": "列选项",
+        "Convert formula to data": "将公式转换为数据",
+        "Delete {{count}} columns_one": "删除列",
+        "Delete {{count}} columns_other": "删除 {{count}} 列",
+        "Filter Data": "过滤数据",
+        "Freeze {{count}} columns_one": "冻结此列",
+        "Freeze {{count}} columns_other": "冻结 {{count}} 列",
+        "Freeze {{count}} more columns_one": "再冻结一列",
+        "Freeze {{count}} more columns_other": "冻结 {{count}} 列",
+        "Hide {{count}} columns_one": "隐藏栏",
+        "Hide {{count}} columns_other": "隐藏 {{count}} 列",
+        "Insert column to the {{to}}": "将列插入到 {{to}}",
+        "More sort options ...": "更多排序选项…",
+        "Rename column": "重命名列",
+        "Reset {{count}} columns_one": "重置列",
+        "Reset {{count}} columns_other": "重置 {{count}} 列",
+        "Reset {{count}} entire columns_one": "重置整列",
+        "Reset {{count}} entire columns_other": "重置 {{count}} 整列",
+        "Sort": "排序",
+        "Sorted (#{{count}})_one": "已排序（#{{count}}）",
+        "Sorted (#{{count}})_other": "已排序（#{{count}}）",
+        "Unfreeze {{count}} columns_one": "解冻此列",
+        "Unfreeze all columns": "解冻所有列",
+        "Unfreeze {{count}} columns_other": "解冻 {{count}} 列",
+        "Show column {{- label}}": "显示列 {{- label}}",
+        "Insert column to the left": "在左侧插入列",
+        "Insert column to the right": "在右侧插入列"
+    },
+    "GristDoc": {
+        "Added new linked section to view {{viewName}}": "添加了新的链接部分以查看 {{viewName}}",
+        "Import from file": "从文件导入",
+        "Saved linked section {{title}} in view {{name}}": "已将链接部分 {{title}} 保存在视图 {{name}} 中",
+        "go to webhook settings": "去设置 webhook"
+    },
+    "Importer": {
+        "Merge rows that match these fields:": "合并与这些字段匹配的行：",
+        "Select fields to match on": "选择要匹配的字段",
+        "Update existing records": "更新现有记录",
+        "{{count}} unmatched field_one": "{{count}} 个不匹配字段",
+        "{{count}} unmatched field in import_one": "导入中 {{count}} 个字段不匹配",
+        "{{count}} unmatched field_other": "{{count}} 个不匹配字段",
+        "{{count}} unmatched field in import_other": "导入中 {{count}} 个字段不匹配"
+    },
+    "LeftPanelCommon": {
+        "Help Center": "帮助中心"
+    },
+    "OnBoardingPopups": {
+        "Finish": "结束",
+        "Next": "下一个"
+    },
+    "PageWidgetPicker": {
+        "Add to Page": "添加到页面",
+        "Building {{- label}} widget": "构建 {{- label}} 小部件",
+        "Group by": "通过...分组",
+        "Select Data": "选择数据",
+        "Select Widget": "选择小部件"
+    },
+    "Pages": {
+        "Delete": "删除",
+        "Delete data and this page.": "删除数据和本页。",
+        "The following tables will no longer be visible_one": "下表将不再可见",
+        "The following tables will no longer be visible_other": "下表将不再可见"
+    },
+    "PermissionsWidget": {
+        "Allow All": "允许全部",
+        "Deny All": "全部拒绝",
+        "Read Only": "只读"
+    },
+    "PluginScreen": {
+        "Import failed: ": "导入失败： "
+    },
+    "RecordLayoutEditor": {
+        "Add Field": "添加字段",
+        "Create New Field": "创建新字段",
+        "Save Layout": "保存布局",
+        "Cancel": "取消",
+        "Show field {{- label}}": "显示字段 {{- label}}"
+    },
+    "RefSelect": {
+        "Add Column": "添加列",
+        "No columns to add": "没有要添加的列"
+    },
+    "SelectionSummary": {
+        "Copied to clipboard": "复制到剪贴板"
+    },
+    "ShareMenu": {
+        "Access Details": "访问详细信息",
+        "Back to Current": "回到当前",
+        "Compare to {{termToUse}}": "与{{termToUse}}比较",
+        "Current Version": "当前版本",
+        "Download": "下载",
+        "Duplicate Document": "重复文件",
+        "Edit without affecting the original": "在不影响原件的情况下编辑",
+        "Export CSV": "导出 CSV",
+        "Export XLSX": "导出 XLSX",
+        "Manage Users": "管理用户",
+        "Original": "原来的",
+        "Replace {{termToUse}}...": "替换 {{termToUse}}…",
+        "Return to {{termToUse}}": "返回{{termToUse}}",
+        "Save Copy": "保存副本",
+        "Save Document": "保存文档",
+        "Send to Google Drive": "发送到谷歌云端硬盘",
+        "Show in folder": "展现在文件夹中",
+        "Unsaved": "未保存",
+        "Work on a Copy": "在副本上工作",
+        "Share": "分享"
+    },
+    "SiteSwitcher": {
+        "Create new team site": "创建新的团队网站",
+        "Switch Sites": "切换站点"
+    },
+    "SortConfig": {
+        "Add Column": "添加列",
+        "Empty values last": "最后为空值",
+        "Natural sort": "自然排序",
+        "Update Data": "更新数据",
+        "Use choice position": "使用选择位置",
+        "Search Columns": "搜索列"
+    },
+    "ThemeConfig": {
+        "Appearance ": "外观 ",
+        "Switch appearance automatically to match system": "自动切换外观以匹配系统"
+    },
+    "Tools": {
+        "Access Rules": "访问规则",
+        "Code View": "代码视图",
+        "Delete": "删除",
+        "Delete document tour?": "删除文档导览？",
+        "Document History": "文件历史",
+        "How-to Tutorial": "操作指南",
+        "Raw Data": "原始数据",
+        "Return to viewing as yourself": "返回查看自己",
+        "TOOLS": "工具",
+        "Tour of this Document": "本文档导览",
+        "Validate Data": "验证数据",
+        "Settings": "设置"
+    },
+    "TopBar": {
+        "Manage Team": "管理团队"
+    },
+    "TriggerFormulas": {
+        "Any field": "任何领域",
+        "Apply on changes to:": "应用更改：",
+        "Apply on record changes": "应用记录更改",
+        "Apply to new records": "申请新记录",
+        "Cancel": "取消",
+        "Close": "关闭",
+        "Current field ": "当前字段 ",
+        "OK": "好的"
+    },
+    "TypeTransformation": {
+        "Apply": "申请",
+        "Cancel": "取消",
+        "Preview": "预览",
+        "Revise": "修订",
+        "Update formula (Shift+Enter)": "更新公式（Shift+Enter）"
+    },
+    "ViewAsBanner": {
+        "UnknownUser": "未知用户"
+    },
+    "WidgetTitle": {
+        "Cancel": "取消",
+        "DATA TABLE NAME": "数据表名称",
+        "Override widget title": "覆盖小部件标题",
+        "Provide a table name": "提供表名",
+        "Save": "保存",
+        "WIDGET TITLE": "小部件标题",
+        "WIDGET DESCRIPTION": "小部件描述"
+    },
+    "duplicatePage": {
+        "Duplicate page {{pageName}}": "重复页面 {{pageName}}",
+        "Note that this does not copy data, but creates another view of the same data.": "请注意，这不会复制数据，而是创建相同数据的另一个视图。"
+    },
+    "menus": {
+        "* Workspaces are available on team plans. ": "* 工作区在团队计划中可用。 ",
+        "Select fields": "选择字段",
+        "Upgrade now": "现在升级",
+        "Reference List": "参考列表",
+        "Toggle": "切换",
+        "Date": "日期",
+        "DateTime": "日期时间",
+        "Choice": "选择",
+        "Choice List": "选择列表",
+        "Reference": "参考",
+        "Attachment": "附件",
+        "Any": "任何",
+        "Numeric": "数值",
+        "Text": "文本",
+        "Integer": "整数"
+    },
+    "errorPages": {
+        "Add account": "新增帐户",
+        "Contact support": "联系支持",
+        "Go to main page": "转到主页",
+        "Sign in": "登入",
+        "Sign in again": "重新登录",
+        "Sign in to access this organization's documents.": "登录以访问该组织的文档。",
+        "Something went wrong": "出了些问题",
+        "The requested page could not be found.{{separator}}Please check the URL and try again.": "找不到请求的页面。{{separator}}请检查 URL 并重试。",
+        "There was an error: {{message}}": "出现错误：{{message}}",
+        "There was an unknown error.": "出现未知错误。",
+        "You are now signed out.": "您现在已注销。",
+        "You are signed in as {{email}}. You can sign in with a different account, or ask an administrator for access.": "您以 {{email}} 身份登录。 您可以使用其他帐户登录，或向管理员申请访问权限。",
+        "You do not have access to this organization's documents.": "您无权访问该组织的文档。",
+        "Signed out{{suffix}}": "退出{{suffix}}",
+        "Page not found{{suffix}}": "找不到页面 {{suffix}}",
+        "Access denied{{suffix}}": "访问被拒绝{{suffix}}",
+        "Error{{suffix}}": "错误{{suffix}}"
+    },
+    "modals": {
+        "Cancel": "取消",
+        "Ok": "好的",
+        "Save": "保存"
+    },
+    "pages": {
+        "Duplicate Page": "重复页面",
+        "Remove": "消除",
+        "Rename": "改名",
+        "You do not have edit access to this document": "您没有对此文档的编辑权限"
+    },
+    "search": {
+        "Find Next ": "找下一个 ",
+        "Find Previous ": "查找上一个 ",
+        "No results": "没有结果",
+        "Search in document": "在文档中搜索",
+        "Search": "搜索"
+    },
+    "sendToDrive": {
+        "Sending file to Google Drive": "发送文件到谷歌云端硬盘"
+    },
+    "NTextBox": {
+        "false": "错误的",
+        "true": "真的"
+    },
+    "ACLUsers": {
+        "Example Users": "示例用户",
+        "Users from table": "表中的用户",
+        "View As": "查看为"
+    },
+    "TypeTransform": {
+        "Apply": "申请",
+        "Cancel": "取消",
+        "Preview": "预览",
+        "Revise": "修订",
+        "Update formula (Shift+Enter)": "更新公式（Shift+Enter）"
+    },
+    "ColumnInfo": {
+        "COLUMN DESCRIPTION": "栏目说明",
+        "COLUMN ID: ": "列号： ",
+        "COLUMN LABEL": "列标签",
+        "Cancel": "取消",
+        "Save": "保存"
+    },
+    "CellStyle": {
+        "CELL STYLE": "细胞样式",
+        "Cell Style": "单元样式",
+        "Default cell style": "默认单元格样式",
+        "Mixed style": "混合风格",
+        "Open row styles": "打开行样式"
+    },
+    "ChoiceTextBox": {
+        "CHOICES": "选择"
+    },
+    "ColumnEditor": {
+        "COLUMN DESCRIPTION": "栏目说明",
+        "COLUMN LABEL": "列标签"
+    },
+    "EditorTooltip": {
+        "Convert column to formula": "将列转换为公式"
+    },
+    "FieldEditor": {
+        "It should be impossible to save a plain data value into a formula column": "不可能将纯数据值保存到公式列中",
+        "Unable to finish saving edited cell": "无法完成保存编辑的单元格"
+    },
+    "HyperLinkEditor": {
+        "[link label] url": "[链接标签] URL"
+    },
+    "NumericTextBox": {
+        "Currency": "货币",
+        "Decimals": "小数点",
+        "Default currency ({{defaultCurrency}})": "默认货币 ({{defaultCurrency}})",
+        "Number Format": "数字格式"
+    },
+    "Reference": {
+        "CELL FORMAT": "细胞格式",
+        "Row ID": "行号",
+        "SHOW COLUMN": "显示专栏"
+    },
+    "LanguageMenu": {
+        "Language": "语言"
+    },
+    "GristTooltips": {
+        "Apply conditional formatting to cells in this column when formula conditions are met.": "当满足公式条件时，将条件格式应用于此列中的单元格。",
+        "Apply conditional formatting to rows based on formulas.": "根据公式将条件格式应用于行。",
+        "Cells in a reference column always identify an {{entire}} record in that table, but you may select which column from that record to show.": "参考列中的单元格始终标识该表中的 {{entire}} 记录，但您可以选择显示该记录中的哪一列。",
+        "Click on “Open row styles” to apply conditional formatting to rows.": "单击“打开行样式”以将条件格式应用于行。",
+        "Click the Add New button to create new documents or workspaces, or import data.": "单击添加新按钮以创建新文档或工作区，或导入数据。",
+        "Learn more.": "了解更多。",
+        "Link your new widget to an existing widget on this page.": "将您的新小部件链接到此页面上的现有小部件。",
+        "Linking Widgets": "链接小部件",
+        "Nested Filtering": "嵌套过滤",
+        "Only those rows will appear which match all of the filters.": "只有那些匹配所有过滤器的行才会出现。",
+        "Pinned filters are displayed as buttons above the widget.": "固定过滤器显示为小部件上方的按钮。",
+        "Pinning Filters": "固定过滤器",
+        "Raw Data page": "原始数据页面",
+        "Rearrange the fields in your card by dragging and resizing cells.": "通过拖动和调整单元格大小来重新排列卡片中的字段。",
+        "Reference Columns": "参考列",
+        "Select the table containing the data to show.": "选择包含要显示的数据的表。",
+        "Select the table to link to.": "选择要链接到的表。",
+        "Selecting Data": "选择数据",
+        "The Raw Data page lists all data tables in your document, including summary tables and tables not included in page layouts.": "原始数据页面列出了文档中的所有数据表，包括汇总表和未包含在页面布局中的表。",
+        "The total size of all data in this document, excluding attachments.": "本文档中所有数据的总大小，不包括附件。",
+        "They allow for one record to point (or refer) to another.": "它们允许一条记录指向（或引用）另一条记录。",
+        "This is the secret to Grist's dynamic and productive layouts.": "这就是 Grist 的动态和高效布局的秘诀。",
+        "Try out changes in a copy, then decide whether to replace the original with your edits.": "尝试对副本进行更改，然后决定是否用您的编辑替换原始文件。",
+        "Unpin to hide the the button while keeping the filter.": "取消固定以隐藏按钮，同时保留过滤器。",
+        "Updates every 5 minutes.": "每 5 分钟更新一次。",
+        "Use the \\u{1D6BA} icon to create summary (or pivot) tables, for totals or subtotals.": "使用 \\u{1D6BA} 图标创建总计或小计的汇总（或数据透视表）表。",
+        "Useful for storing the timestamp or author of a new record, data cleaning, and more.": "用于存储新记录的时间戳或作者、数据清理等。",
+        "You can filter by more than one column.": "您可以按多个列进行过滤。",
+        "entire": "全部的",
+        "relational": "相关的",
+        "Access Rules": "访问规则",
+        "Access rules give you the power to create nuanced rules to determine who can see or edit which parts of your document.": "访问规则使您能够创建细微的规则来确定谁可以查看或编辑文档的哪些部分。",
+        "Add New": "添新",
+        "Use the 𝚺 icon to create summary (or pivot) tables, for totals or subtotals.": "使用 𝚺 图标为总计或小计创建汇总（或数据透视表）表。",
+        "Reference columns are the key to {{relational}} data in Grist.": "引用列是 Grist 中 {{relational}} 数据的关键。",
+        "Clicking {{EyeHideIcon}} in each cell hides the field from this view without deleting it.": "单击每个单元格中的 {{EyeHideIcon}} 可隐藏此视图中的字段而不将其删除。",
+        "Editing Card Layout": "编辑卡片布局",
+        "Formulas that trigger in certain cases, and store the calculated value as data.": "在某些情况下触发的公式，并将计算值存储为数据。",
+        "Anchor Links": "锚链接",
+        "To make an anchor link that takes the user to a specific cell, click on a row and press {{shortcut}}.": "要创建将用户带到特定单元格的锚点链接，请单击行并按 {{shortcut}} 。",
+        "You can choose one of our pre-made widgets or embed your own by providing its full URL.": "您可以选择我们的一个预制小部件或通过提供其完整的URL嵌入您自己的。",
+        "Custom Widgets": "自定义小部件"
+    },
+    "DescriptionConfig": {
+        "DESCRIPTION": "描述"
+    },
+    "PagePanels": {
+        "Close Creator Panel": "关闭创作者面板",
+        "Open Creator Panel": "打开创作者面板"
+    },
+    "ColumnTitle": {
+        "Column label": "列标签",
+        "Provide a column label": "提供列标签",
+        "Close": "关闭",
+        "COLUMN ID: ": "列号： ",
+        "Column description": "列说明",
+        "Add description": "添加说明",
+        "Cancel": "取消",
+        "Column ID copied to clipboard": "列ID已复制到剪贴板",
+        "Save": "保存"
+    },
+    "FieldContextMenu": {
+        "Copy": "拷贝",
+        "Copy anchor link": "复制锚点链接",
+        "Cut": "剪切",
+        "Hide field": "隐藏字段",
+        "Paste": "粘贴",
+        "Clear field": "清除字段"
+    },
+    "FormulaAssistant": {
+        "Capabilities": "技术支持",
+        "Formula Cheat Sheet": "公式备忘单",
+        "Regenerate": "重新生成",
+        "Tips": "建 议",
+        "Apply": "应用",
+        "Clear Conversation": "清晰的对话",
+        "Hi, I'm the Grist Formula AI Assistant.": "你好，我是 Grist 公式的人工智能助手。",
+        "Learn more": "了解更多",
+        "Press Enter to apply suggested formula.": "按 Enter 键应用建议的公式。",
+        "Code View": "代码视图",
+        "I can only help with formulas. I cannot build tables, columns, and views, or write access rules.": "我只能帮忙写公式。我无法构建表、列和视图，也无法编写访问规则。",
+        "Ask the bot.": "咨询机器人。",
+        "Grist's AI Formula Assistance. ": "Grist 的人工智能公式协助。 ",
+        "Preview": "预览",
+        "See our {{helpFunction}} and {{formulaCheat}}, or visit our {{community}} for more help.": "请参阅我们的 {{helpFunction}} 和 {{formulaCheat}}，或访问我们的 {{community}} 获取更多帮助。",
+        "AI Assistant": "AI助手",
+        "There are some things you should know when working with me:": "与我合作时，您应该了解一些事情：",
+        "What do you need help with?": "你有什么需要帮助的？",
+        "Cancel": "取消",
+        "Need help? Our AI assistant can help.": "需要帮忙？我们的人工智能助手可以提供帮助。",
+        "New Chat": "新聊天",
+        "Save": "保存",
+        "Community": "社区",
+        "Data": "数据",
+        "Formula Help. ": "公式帮助。 ",
+        "Function List": "函数列表",
+        "Grist's AI Assistance": "Grist 人工智能助手",
+        "Sign up for a free Grist account to start using the Formula AI Assistant.": "注册一个免费的Grist帐户，开始使用Formula AI助手。",
+        "Sign Up for Free": "免费注册"
+    },
+    "WebhookPage": {
+        "Clear Queue": "清除队列",
+        "Webhook Settings": "Webhook设置"
+    },
+    "WelcomeSitePicker": {
+        "Welcome back": "欢迎回来",
+        "You can always switch sites using the account menu.": "您始终可以使用帐户菜单切换站点。",
+        "You have access to the following Grist sites.": "您可以访问以下 Grist 网站。"
+    },
+    "UserManager": {
+        "Invite multiple": "邀请多人",
+        "Invite people to {{resourceType}}": "邀请人们加入 {{resourceType}}",
+        "Public access inherited from {{parent}}. To remove, set 'Inherit access' option to 'None'.": "公共访问权限继承自 {{parent}}。要删除，请将“继承访问权限”选项设置为“无”。",
+        "User inherits permissions from {{parent})}. To remove,           set 'Inherit access' option to 'None'.": "用户从 {{parent})} 继承权限。要删除，请将“继承访问权限”选项设置为“无”。",
+        "member": "成员",
+        "No default access allows access to be granted to individual documents or workspaces, rather than the full team site.": "只允许对单个文档或工作区配置无默认访问权限，而不能对整个团队网站配置。",
+        "Once you have removed your own access, you will not be able to get it back without assistance from someone else with sufficient access to the {{resourceType}}.": "一旦您删除了自己的访问权限，如果没有对{{resourceType}}具有足够访问权限的其他人的帮助，您将无法将其恢复。",
+        "User has view access to {{resource}} resulting from manually-set access to resources inside. If removed here, this user will lose access to resources inside.": "由于手动设置了对内部资源的访问权限，因此用户具有对{{resource}}的查看权限。如果在此处删除，此用户将无法访问内部资源。",
+        "Close": "关闭",
+        "Collaborator": "合作者",
+        "Create a team to share with more people": "创建团队与更多人分享",
+        "On": "打开",
+        "Off": "关闭",
+        "Open Access Rules": "开放访问规则",
+        "Outside collaborator": "外部合作者",
+        "Your role for this team site": "您在这个团队站点中的角色",
+        "Your role for this {{resourceType}}": "您在此{{resourceType}}中的角色",
+        "free collaborator": "自由合作者",
+        "guest": "游客",
+        "Allow anyone with the link to open.": "允许任何知道该链接的人打开。",
+        "Anyone with link ": "任何有链接的人 ",
+        "Cancel": "取消",
+        "Confirm": "确认",
+        "Copy Link": "复制链接",
+        "Link copied to clipboard": "链接已复制到剪贴板",
+        "Manage members of team site": "管理团队网站的成员",
+        "No default access allows access to be         granted to individual documents or workspaces, rather than the full team site.": "没有默认访问权限允许授予对单个文档或工作区的访问权限，而不是对整个团队网站的访问权限。",
+        "Once you have removed your own access,             you will not be able to get it back without assistance              from someone else with sufficient access to the {{name}}.": "一旦您删除了自己的访问权限，如果没有对 {{name}} 有足够访问权限的其他人的帮助，您将无法取回该访问权限。",
+        "User may not modify their own access.": "用户不得修改自己的访问权限。",
+        "You are about to remove your own access to this {{resourceType}}": "您即将删除自己对此{{resourceType}}的访问权限",
+        "User inherits permissions from {{parent}}. To remove, set 'Inherit access' option to 'None'.": "用户从 {{parent}} 继承权限。要删除，请将“继承访问权限”选项设置为“无”。",
+        "Add {{member}} to your team": "将 {{member}} 添加到您的团队",
+        "Grist support": "Grist 支持",
+        "Guest": "游客",
+        "Public Access": "公开访问",
+        "Public access": "公开访问",
+        "Public access: ": "公开访问： ",
+        "Remove my access": "删除我的访问权限",
+        "Save & ": "保存 ＆ ",
+        "Team member": "团队成员",
+        "team site": "团队网站",
+        "{{collaborator}} limit exceeded": "已超出{{collaborator}}限制",
+        "{{limitAt}} of {{limitTop}} {{collaborator}}s": "{{limitAt}} of {{limitTop}} {{collaborator}}s"
+    },
+    "SupportGristPage": {
+        "This instance is opted out of telemetry. Only the site administrator has permission to change this.": "该实例被选择退出遥测。只有网站管理员有权更改此设置。",
+        "This instance is opted in to telemetry. Only the site administrator has permission to change this.": "该实例被选择用于遥测。只有网站管理员有权更改此设置。",
+        "GitHub": "GitHub",
+        "GitHub Sponsors page": "GitHub赞助商页面",
+        "Help Center": "帮助中心",
+        "Opt in to Telemetry": "选择遥测",
+        "Opt out of Telemetry": "选择退出遥测",
+        "Support Grist": "支持 Grist",
+        "Telemetry": "遥测",
+        "Sponsor Grist Labs on GitHub": "在 GitHub 上赞助 Grist Labs",
+        "Home": "主页",
+        "Manage Sponsorship": "管理赞助",
+        "We only collect usage statistics, as detailed in our {{link}}, never document contents.": "我们只收集使用统计数据，如我们的{{link}}中所述，从不搜集文档内容。",
+        "You can opt out of telemetry at any time from this page.": "您可以随时从此页面选择退出遥测。",
+        "You have opted in to telemetry. Thank you!": "您已选择使用遥测。谢谢你，谢谢！",
+        "You have opted out of telemetry.": "您已选择退出遥测。"
+    },
+    "SupportGristNudge": {
+        "Help Center": "帮助中心",
+        "Support Grist page": "支持Grist页面",
+        "Close": "关闭",
+        "Contribute": "投稿",
+        "Support Grist": "支持 Grist",
+        "Opt in to Telemetry": "选择遥测",
+        "Opted In": "选择加入"
+    },
+    "DescriptionTextArea": {
+        "DESCRIPTION": "描述"
+    },
+    "buildViewSectionDom": {
+        "No data": "没有数据",
+        "No row selected in {{title}}": "{{title}}中未选择行",
+        "Not all data is shown": "未显示所有数据"
+    },
+    "Clipboard": {
+        "Got it": "明白了",
+        "Unavailable Command": "命令不可用"
+    },
+    "GridView": {
+        "Click to insert": "点击插入"
+    },
+    "SearchModel": {
+        "Search all pages": "搜索所有页面",
+        "Search all tables": "搜索所有表"
+    },
+    "searchDropdown": {
+        "Search": "搜索"
+    },
+    "FloatingEditor": {
+        "Collapse Editor": "折叠编辑器"
+    },
+    "FloatingPopup": {
+        "Maximize": "最大化",
+        "Minimize": "最小化"
+    }
+}
