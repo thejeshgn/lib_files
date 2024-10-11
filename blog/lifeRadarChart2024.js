@@ -8,16 +8,16 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 			//This is for 44th Year
 			var data = [
 				[
-				  {axis:"Health",value:.9},
+				  {axis:"Health",value:.8},
 				  {axis:"Wealth",value:.5},
 				  {axis:"Location",value:.2},
 				  {axis:"Family",value:.9},
-				  {axis:"Friends",value:.7},
+				  {axis:"Friends",value:.6},
 				  {axis:"Love",value:.8},
 				  {axis:"Learning",value:.6},
-				  {axis:"Work",value:.6},
-				  {axis:"Leisure",value:.5},
-				  {axis:"Self",value:.5},
+				  {axis:"Work",value:.7},
+				  {axis:"Leisure",value:.3},
+				  {axis:"Self",value:.6},
 			  ]
 			  ];
 			////////////////////////////////////////////////////////////// 
