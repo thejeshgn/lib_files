@@ -1,0 +1,15 @@
+<html>
+
+<body>
+
+<script src="v3/alpinejs.min.js" defer></script>
+ 
+<div x-data="{ open: false }">
+    <button @click="open = true">Expand</button>
+ 
+    <span x-show="open">
+        Expanded, so content is here.
+    </span>
+</div>
+
+</body>
