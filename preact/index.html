@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-hosted Preact App</title>
+    <script src="v10/preact.min.umd.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const { h, render } = preact;
+
+        const App = () => h('h1', null, 'Hello Preact Self-Hosted!');
+
+        render(h(App), document.getElementById('root'));
+    </script>
+</body>
+</html>
