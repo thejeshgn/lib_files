@@ -1,42 +1,13 @@
 <html>
 <head>
-<style>
-  #main,
-  html,
-  body {
-    width: 100%;
-  }
-  #main {
-    height: 400px;
-  }
-</style>
-<script src="./5.6.0/echarts.min.js"></script>
-<script type="text/javascript">
-option = {
-  xAxis: {
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {},
-  series: [
-    {
-      type: 'bar',
-      data: [23, 24, 18, 25, 27, 28, 25]
-    }
-  ]
-};
-</script>
-
 </head>
 <body>
-<div id="main" style="width: 600px;height:400px;"></div>
+<a href="https://echarts.apache.org/en/index.html">echarts</a>
+<a href="https://lib.thejeshgn.com/lib_files/echarts/example.html"> Example<a/>
 
+
+<code>
+https://lib.thejeshgn.com/lib_files/echarts//5.6.0/echarts.min.js
+</code>
 </body>
-<script type="text/javascript">
-  var myChart = echarts.init(document.getElementById('main'),'dark');
-  myChart.setOption(option);
-  window.addEventListener('resize', function() {
-    myChart.resize();
-  });
-  
-</script>
 </html>
